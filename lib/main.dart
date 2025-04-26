@@ -52,13 +52,13 @@ class _MainScreenState extends State<MainScreen> {
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.sentiment_satisfied),
-            label: 'Rate Mood',
+            label: 'Estado de ánimo'
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.bar_chart), label: 'Charts'),
-          BottomNavigationBarItem(icon: Icon(Icons.lightbulb), label: 'Tips'),
+          BottomNavigationBarItem(icon: Icon(Icons.bar_chart), label: 'Gráficas'),
+          BottomNavigationBarItem(icon: Icon(Icons.lightbulb), label: 'Consejos'),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
-            label: 'Settings',
+            label: 'Configuración',
           ),
         ],
       ),

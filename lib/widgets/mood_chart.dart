@@ -25,22 +25,62 @@ class MoodChart extends StatelessWidget {
               height: 300,
               child: LineChart(
                 LineChartData(
+                  minX: 1,
+                  maxX: data.length.toDouble(),
+                  minY: 0,
+                  maxY: 10,
                   gridData: const FlGridData(show: true),
-                  titlesData: const FlTitlesData(show: true),
-                  borderData: FlBorderData(show: true),
+                  titlesData: FlTitlesData(
+                    show: true,
+                    // Configuración Eje Y (izquierda)
+                    leftTitles: AxisTitles(
+                      sideTitles: SideTitles(
+                        showTitles: true,
+                        interval: 2,
+                        reservedSize: 40,
+                        getTitlesWidget:
+                            (value, meta) => Text(
+                              value.toInt().toString(),
+                              style: const TextStyle(fontSize: 12),
+                            ),
+                      ),
+                    ),
+                    // Configuración Eje X (abajo)
+                    bottomTitles: AxisTitles(
+                      sideTitles: SideTitles(
+                        showTitles: true,
+                        interval: timeFrame == 'Semanal' ? 1 : 3,
+                        reservedSize: 20,
+                        getTitlesWidget:
+                            (value, meta) => Text(
+                              'D${value.toInt()}',
+                              style: const TextStyle(fontSize: 12),
+                            ),
+                      ),
+                    ),
+                    // Ocultar otros ejes
+                    rightTitles: const AxisTitles(),
+                    topTitles: const AxisTitles(),
+                  ),
+                  borderData: FlBorderData(
+                    show: true,
+                    border: const Border(
+                      bottom: BorderSide(color: Colors.grey),
+                      left: BorderSide(color: Colors.grey),
+                    ),
+                  ),
                   lineBarsData: [
                     LineChartBarData(
                       spots:
-                          data
-                              .map(
-                                (entry) => FlSpot(
-                                  entry.date.day.toDouble(), // Eje X (días)
-                                  entry.rating.toDouble(), // Eje Y (puntuación)
-                                ),
-                              )
-                              .toList(),
+                          data.asMap().entries.map((entry) {
+                            return FlSpot(
+                              (entry.key + 1).toDouble(),
+                              entry.value.rating.toDouble(),
+                            );
+                          }).toList(),
                       isCurved: true,
                       color: Colors.blue,
+                      barWidth: 3,
                       dotData: const FlDotData(show: true),
                     ),
                   ],
