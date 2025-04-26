@@ -1,5 +1,5 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:mood_tracker/services/mood_storage.dart';
 import '../widgets/mood_chart.dart';
 import '../models/mood_entry.dart';
 
@@ -11,69 +11,83 @@ class MoodChartsScreen extends StatefulWidget {
 }
 
 class _MoodChartsScreenState extends State<MoodChartsScreen> {
+  final MoodStorage _storage = MoodStorage();
+  late Future<List<MoodEntry>> _futureData;
   String _selectedTimeFrame = 'Semanal';
-  late final List<MoodEntry> sampleData;
 
   @override
   void initState() {
     super.initState();
-    sampleData = _generateSampleData();
+    _futureData = _storage.getAllEntries();
   }
 
-  List<MoodEntry> _generateSampleData() {
-    final random = Random();
-    return List.generate(30, (index) {
-      return MoodEntry(
-        rating: random.nextInt(10) + 1, // 1-10
-        date: DateTime.now().subtract(Duration(days: 29 - index)),
-      );
-    });
-  }
+  List<MoodEntry> _getFilteredData(List<MoodEntry> allData) {
+    final now = DateTime.now();
+    final cutoff =
+        _selectedTimeFrame == 'Semanal'
+            ? now.subtract(const Duration(days: 7))
+            : now.subtract(const Duration(days: 30));
 
-  List<MoodEntry> _getFilteredData() {
-    if (_selectedTimeFrame == 'Semanal') {
-      return sampleData.sublist(sampleData.length - 7);
-    }
-    return sampleData;
+    return allData.where((entry) => entry.date.isAfter(cutoff)).toList();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Estadísticas')),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
+      body: FutureBuilder<List<MoodEntry>>(
+        future: _futureData,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          }
+
+          if (snapshot.hasError) {
+            return Center(child: Text('Error: ${snapshot.error}'));
+          }
+
+          final allData = snapshot.data!;
+          final filteredData = _getFilteredData(allData);
+
+          return Column(
             children: [
               _buildTimeFrameSelector(),
-              const SizedBox(height: 20),
-              SizedBox(
-                height: 400,
-                child: MoodChart(
-                  data: _getFilteredData(),
-                  timeFrame: _selectedTimeFrame,
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child:
+                      filteredData.isEmpty
+                          ? const Center(
+                            child: Text('No hay datos disponibles'),
+                          )
+                          : MoodChart(
+                            data: filteredData,
+                            timeFrame: _selectedTimeFrame,
+                          ),
                 ),
               ),
             ],
-          ),
-        ),
+          );
+        },
       ),
     );
   }
 
   Widget _buildTimeFrameSelector() {
-    return SegmentedButton<String>(
-      segments: const [
-        ButtonSegment(value: 'Semanal', label: Text('Últimos 7 días')),
-        ButtonSegment(value: 'Mensual', label: Text('Últimos 30 días')),
-      ],
-      selected: {_selectedTimeFrame},
-      onSelectionChanged: (Set<String> newSelection) {
-        setState(() {
-          _selectedTimeFrame = newSelection.first;
-        });
-      },
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 16.0),
+      child: SegmentedButton<String>(
+        segments: const [
+          ButtonSegment(value: 'Semanal', label: Text('Semanal')),
+          ButtonSegment(value: 'Mensual', label: Text('Mensual')),
+        ],
+        selected: {_selectedTimeFrame},
+        onSelectionChanged: (Set<String> newSelection) {
+          setState(() {
+            _selectedTimeFrame = newSelection.first;
+          });
+        },
+      ),
     );
   }
 }

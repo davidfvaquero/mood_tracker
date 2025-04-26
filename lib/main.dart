@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
-
+import 'package:hive_flutter/hive_flutter.dart';
+import 'models/mood_entry.dart';
 import 'screens/mood_rating_screen.dart';
 import 'screens/mood_charts_screen.dart';
 import 'screens/settings_screen.dart';
 import 'screens/tips_screen.dart';
 
-void main() => runApp(const MoodTrackerApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+  Hive.registerAdapter(MoodEntryAdapter());
+  runApp(const MoodTrackerApp());
+}
 
 class MoodTrackerApp extends StatelessWidget {
   const MoodTrackerApp({super.key});

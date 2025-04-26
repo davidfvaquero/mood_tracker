@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mood_tracker/services/mood_storage.dart';
 import '../models/mood_entry.dart';
 
 class MoodRatingScreen extends StatefulWidget {
@@ -9,9 +10,11 @@ class MoodRatingScreen extends StatefulWidget {
 }
 
 class _MoodRatingScreenState extends State<MoodRatingScreen> {
+  final MoodStorage _storage =MoodStorage();
+
   int _selectedRating = 0;
 
-  void _saveMood() {
+  void _saveMood() async{
     if (_selectedRating == 0) return;
     
     final entry = MoodEntry(
@@ -19,8 +22,7 @@ class _MoodRatingScreenState extends State<MoodRatingScreen> {
       date: DateTime.now(),
     );
     
-    // TODO: Guardar en base de datos/local storage
-    print('Guardado: $entry');
+    await _storage.saveMood(entry);
     
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text('Estado guardado correctamente')),
