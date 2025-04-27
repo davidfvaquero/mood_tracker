@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mood_tracker/services/mood_storage.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -24,6 +25,15 @@ class SettingsScreen extends StatelessWidget {
             title: Text('Privacidad y Seguridad'),
           ),
           // Añadir más opciones según necesidades
+          ElevatedButton(
+            onPressed: () async {
+              await MoodStorage().deleteDuplicates();
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Fechas duplicadas eliminadas')),
+              );
+            },
+            child: const Text('Eliminar fechas duplicadas'),
+          ),
         ],
       ),
     );

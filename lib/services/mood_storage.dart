@@ -19,6 +19,26 @@ class MoodStorage {
     await box.add(newEntry);
   }
 
+  Future<void> deleteDuplicates() async {
+    final box = await _openBox();
+    final uniqueDates = <String>{};
+
+    final entriesToDelete = <dynamic>[];
+
+    for (var entry in box.values) {
+      final dateKey =
+          "${entry.date.day}-${entry.date.month}-${entry.date.year}";
+
+      if (uniqueDates.contains(dateKey)) {
+        entriesToDelete.add(entry.key);
+      } else {
+        uniqueDates.add(dateKey);
+      }
+    }
+
+    await box.deleteAll(entriesToDelete);
+  }
+
   Future<MoodEntry?> getEntryByDate(DateTime date) async {
     final box = await _openBox();
     try {
