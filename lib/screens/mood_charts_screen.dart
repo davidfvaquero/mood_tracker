@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mood_tracker/services/mood_storage.dart';
-import '../widgets/mood_chart.dart';
 import '../models/mood_entry.dart';
+import '../services/mood_storage.dart';
+import '../widgets/mood_chart.dart';
 
 class MoodChartsScreen extends StatefulWidget {
   const MoodChartsScreen({super.key});
@@ -22,13 +22,12 @@ class _MoodChartsScreenState extends State<MoodChartsScreen> {
   }
 
   List<MoodEntry> _getFilteredData(List<MoodEntry> allData) {
-    final now = DateTime.now();
-    final cutoff =
-        _selectedTimeFrame == 'Semanal'
-            ? now.subtract(const Duration(days: 7))
-            : now.subtract(const Duration(days: 30));
+    final days = _selectedTimeFrame == 'Semanal' ? 7 : 30;
+    final cutoff = DateTime.now().subtract(Duration(days: days));
 
-    return allData.where((entry) => entry.date.isAfter(cutoff)).toList();
+    return allData
+        .where((entry) => entry.date.isAfter(cutoff))
+        .toList();
   }
 
   @override
@@ -38,6 +37,7 @@ class _MoodChartsScreenState extends State<MoodChartsScreen> {
       body: FutureBuilder<List<MoodEntry>>(
         future: _futureData,
         builder: (context, snapshot) {
+          // Manejo de estados de carga y error
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
           }
@@ -46,7 +46,13 @@ class _MoodChartsScreenState extends State<MoodChartsScreen> {
             return Center(child: Text('Error: ${snapshot.error}'));
           }
 
-          final allData = snapshot.data!;
+          // Verificar si hay datos
+          final allData = snapshot.data;
+          if (allData == null || allData.isEmpty) {
+            return const Center(child: Text('No hay datos disponibles'));
+          }
+
+          // Filtrar datos
           final filteredData = _getFilteredData(allData);
 
           return Column(
@@ -58,7 +64,7 @@ class _MoodChartsScreenState extends State<MoodChartsScreen> {
                   child:
                       filteredData.isEmpty
                           ? const Center(
-                            child: Text('No hay datos disponibles'),
+                            child: Text('No hay datos en este rango'),
                           )
                           : MoodChart(
                             data: filteredData,
@@ -77,6 +83,7 @@ class _MoodChartsScreenState extends State<MoodChartsScreen> {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: SegmentedButton<String>(
+        style: SegmentedButton.styleFrom(backgroundColor: Colors.grey[200]),
         segments: const [
           ButtonSegment(value: 'Semanal', label: Text('Semanal')),
           ButtonSegment(value: 'Mensual', label: Text('Mensual')),
@@ -85,6 +92,7 @@ class _MoodChartsScreenState extends State<MoodChartsScreen> {
         onSelectionChanged: (Set<String> newSelection) {
           setState(() {
             _selectedTimeFrame = newSelection.first;
+            _futureData = _storage.getAllEntries();
           });
         },
       ),

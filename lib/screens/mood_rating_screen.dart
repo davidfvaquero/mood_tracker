@@ -10,20 +10,44 @@ class MoodRatingScreen extends StatefulWidget {
 }
 
 class _MoodRatingScreenState extends State<MoodRatingScreen> {
-  final MoodStorage _storage =MoodStorage();
-
+  final MoodStorage _storage = MoodStorage();
   int _selectedRating = 0;
 
-  void _saveMood() async{
+  Future<void> _saveMood() async {
     if (_selectedRating == 0) return;
-    
-    final entry = MoodEntry(
-      rating: _selectedRating,
-      date: DateTime.now(),
-    );
-    
-    await _storage.saveMood(entry);
-    
+
+    final today = DateTime.now();
+    final existingEntry = await _storage.getEntryByDate(today);
+
+    if (existingEntry != null) {
+      final confirm = await showDialog<bool>(
+        context: context,
+        builder:
+            (context) => AlertDialog(
+              title: const Text('Entrada existente'),
+              content: const Text(
+                'Ya tienes una puntuación para hoy. ¿Sobrescribir?',
+              ),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(context, false),
+                  child: const Text('Cancelar'),
+                ),
+                TextButton(
+                  onPressed: () => Navigator.pop(context, true),
+                  child: const Text('Sobrescribir'),
+                ),
+              ],
+            ),
+      );
+
+      if (confirm != true) return;
+    }
+
+    final entry = MoodEntry(rating: _selectedRating, date: today);
+
+    await _storage.saveOrUpdateMood(entry);
+
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text('Estado guardado correctamente')),
     );
@@ -37,10 +61,7 @@ class _MoodRatingScreenState extends State<MoodRatingScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              '¿Cómo te sientes hoy?',
-              style: TextStyle(fontSize: 24),
-            ),
+            const Text('¿Cómo te sientes hoy?', style: TextStyle(fontSize: 24)),
             const SizedBox(height: 30),
             Wrap(
               spacing: 10,

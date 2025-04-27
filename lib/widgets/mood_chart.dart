@@ -25,40 +25,17 @@ class MoodChart extends StatelessWidget {
               height: 300,
               child: LineChart(
                 LineChartData(
-                  minX: 1,
-                  maxX: data.length.toDouble(),
+                  minX: 0,
+                  maxX: data.isEmpty ? 1 : (data.length - 1).toDouble(),
                   minY: 0,
                   maxY: 10,
                   gridData: const FlGridData(show: true),
                   titlesData: FlTitlesData(
                     show: true,
-                    // Configuración Eje Y (izquierda)
-                    leftTitles: AxisTitles(
-                      sideTitles: SideTitles(
-                        showTitles: true,
-                        interval: 2,
-                        reservedSize: 40,
-                        getTitlesWidget:
-                            (value, meta) => Text(
-                              value.toInt().toString(),
-                              style: const TextStyle(fontSize: 12),
-                            ),
-                      ),
+                    bottomTitles: AxisTitles(sideTitles: _getBottomTitles()),
+                    leftTitles: const AxisTitles(
+                      sideTitles: SideTitles(showTitles: true, interval: 2),
                     ),
-                    // Configuración Eje X (abajo)
-                    bottomTitles: AxisTitles(
-                      sideTitles: SideTitles(
-                        showTitles: true,
-                        interval: timeFrame == 'Semanal' ? 1 : 3,
-                        reservedSize: 20,
-                        getTitlesWidget:
-                            (value, meta) => Text(
-                              'D${value.toInt()}',
-                              style: const TextStyle(fontSize: 12),
-                            ),
-                      ),
-                    ),
-                    // Ocultar otros ejes
                     rightTitles: const AxisTitles(),
                     topTitles: const AxisTitles(),
                   ),
@@ -74,7 +51,7 @@ class MoodChart extends StatelessWidget {
                       spots:
                           data.asMap().entries.map((entry) {
                             return FlSpot(
-                              (entry.key + 1).toDouble(),
+                              entry.key.toDouble(),
                               entry.value.rating.toDouble(),
                             );
                           }).toList(),
@@ -90,6 +67,27 @@ class MoodChart extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  SideTitles _getBottomTitles() {
+    return SideTitles(
+      showTitles: true,
+      interval: timeFrame == 'Semanal' ? 1 : 3,
+      getTitlesWidget: (value, meta) {
+        final index = value.toInt();
+        if (index >= 0 && index < data.length) {
+          final date = data[index].date;
+          return Padding(
+            padding: const EdgeInsets.only(top: 8.0),
+            child: Text(
+              '${date.day}/${date.month}',
+              style: const TextStyle(fontSize: 12),
+            ),
+          );
+        }
+        return const Text('');
+      },
     );
   }
 }
