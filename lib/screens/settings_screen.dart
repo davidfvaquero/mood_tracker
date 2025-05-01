@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:mood_tracker/services/mood_storage.dart';
+import 'package:mood_tracker/themes/theme_provider.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -15,16 +17,19 @@ class SettingsScreen extends StatelessWidget {
             value: true,
             onChanged: (value) {}, // TODO: Implementar lógica
           ),
-          const ListTile(
-            leading: Icon(Icons.palette),
-            title: Text('Tema de la aplicación'),
-            // TODO: Implementar selector de tema
+          Consumer<ThemeNotifier>(
+            builder:
+                (context, theme, child) => SwitchListTile(
+                  title: const Text('Modo Oscuro'),
+                  secondary: const Icon(Icons.dark_mode),
+                  value: theme.isDarkMode,
+                  onChanged: (value) => theme.toggleTheme(value),
+                ),
           ),
           const ListTile(
             leading: Icon(Icons.security),
             title: Text('Privacidad y Seguridad'),
           ),
-          // Añadir más opciones según necesidades
           ElevatedButton(
             onPressed: () async {
               await MoodStorage().deleteDuplicates();

@@ -1,16 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:provider/provider.dart';
+
 import 'models/mood_entry.dart';
 import 'screens/mood_rating_screen.dart';
 import 'screens/mood_charts_screen.dart';
 import 'screens/settings_screen.dart';
 import 'screens/tips_screen.dart';
+import 'themes/theme_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
   Hive.registerAdapter(MoodEntryAdapter());
-  runApp(const MoodTrackerApp());
+  await Hive.openBox<MoodEntry>('moodEntries'); // Abrir la caja de Hive
+
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => ThemeNotifier(),
+      child: const MoodTrackerApp(),
+    ),
+  );
 }
 
 class MoodTrackerApp extends StatelessWidget {
@@ -18,13 +28,24 @@ class MoodTrackerApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeNotifier = Provider.of<ThemeNotifier>(context);
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Mood Tracker',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+      theme: ThemeData.light().copyWith(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.blue,
+          brightness: Brightness.light,
+        ),
       ),
+      darkTheme: ThemeData.dark().copyWith(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.blueGrey,
+          brightness: Brightness.dark,
+        ),
+      ),
+      themeMode: themeNotifier.themeMode,
       home: const MainScreen(),
     );
   }
@@ -58,10 +79,16 @@ class _MainScreenState extends State<MainScreen> {
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.sentiment_satisfied),
-            label: 'Estado de ánimo'
+            label: 'Estado de ánimo',
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.bar_chart), label: 'Gráficas'),
-          BottomNavigationBarItem(icon: Icon(Icons.lightbulb), label: 'Consejos'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.bar_chart),
+            label: 'Gráficas',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.lightbulb),
+            label: 'Consejos',
+          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
             label: 'Configuración',
