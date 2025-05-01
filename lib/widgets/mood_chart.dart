@@ -6,7 +6,11 @@ class MoodChart extends StatelessWidget {
   final List<MoodEntry> data;
   final String timeFrame;
 
-  const MoodChart({super.key, required this.data, required this.timeFrame});
+  const MoodChart({
+    super.key,
+    required this.data,
+    required this.timeFrame,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +19,7 @@ class MoodChart extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               'Estado de ánimo - $timeFrame',
@@ -32,9 +37,14 @@ class MoodChart extends StatelessWidget {
                   gridData: const FlGridData(show: true),
                   titlesData: FlTitlesData(
                     show: true,
-                    bottomTitles: AxisTitles(sideTitles: _getBottomTitles()),
+                    bottomTitles: AxisTitles(
+                      sideTitles: _getBottomTitles(),
+                    ),
                     leftTitles: const AxisTitles(
-                      sideTitles: SideTitles(showTitles: true, interval: 2),
+                      sideTitles: SideTitles(
+                        showTitles: true,
+                        interval: 2,
+                      ),
                     ),
                     rightTitles: const AxisTitles(),
                     topTitles: const AxisTitles(),
@@ -48,13 +58,12 @@ class MoodChart extends StatelessWidget {
                   ),
                   lineBarsData: [
                     LineChartBarData(
-                      spots:
-                          data.asMap().entries.map((entry) {
-                            return FlSpot(
-                              entry.key.toDouble(),
-                              entry.value.rating.toDouble(),
-                            );
-                          }).toList(),
+                      spots: data.asMap().entries.map((entry) {
+                        return FlSpot(
+                          entry.key.toDouble(),
+                          entry.value.rating.toDouble(),
+                        );
+                      }).toList(),
                       isCurved: true,
                       color: Colors.blue,
                       barWidth: 3,

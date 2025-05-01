@@ -24,10 +24,11 @@ class _MoodChartsScreenState extends State<MoodChartsScreen> {
   List<MoodEntry> _getFilteredData(List<MoodEntry> allData) {
     final days = _selectedTimeFrame == 'Semanal' ? 7 : 30;
     final cutoff = DateTime.now().subtract(Duration(days: days));
-
+    
     return allData
         .where((entry) => entry.date.isAfter(cutoff))
-        .toList();
+        .toList()
+        ..sort((a, b) => a.date.compareTo(b.date));
   }
 
   @override
@@ -37,42 +38,32 @@ class _MoodChartsScreenState extends State<MoodChartsScreen> {
       body: FutureBuilder<List<MoodEntry>>(
         future: _futureData,
         builder: (context, snapshot) {
-          // Manejo de estados de carga y error
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
           }
 
-          if (snapshot.hasError) {
-            return Center(child: Text('Error: ${snapshot.error}'));
+          if (snapshot.hasError || !snapshot.hasData) {
+            return const Center(child: Text('Error al cargar datos'));
           }
 
-          // Verificar si hay datos
-          final allData = snapshot.data;
-          if (allData == null || allData.isEmpty) {
-            return const Center(child: Text('No hay datos disponibles'));
-          }
-
-          // Filtrar datos
+          final allData = snapshot.data!;
           final filteredData = _getFilteredData(allData);
 
-          return Column(
-            children: [
-              _buildTimeFrameSelector(),
-              Expanded(
-                child: Padding(
+          return SingleChildScrollView(
+            child: Column(
+              children: [
+                _buildTimeFrameSelector(),
+                Padding(
                   padding: const EdgeInsets.all(16.0),
-                  child:
-                      filteredData.isEmpty
-                          ? const Center(
-                            child: Text('No hay datos en este rango'),
-                          )
-                          : MoodChart(
-                            data: filteredData,
-                            timeFrame: _selectedTimeFrame,
-                          ),
+                  child: filteredData.isEmpty
+                      ? const Center(child: Text('No hay datos disponibles'))
+                      : MoodChart(
+                          data: filteredData,
+                          timeFrame: _selectedTimeFrame,
+                        ),
                 ),
-              ),
-            ],
+              ],
+            ),
           );
         },
       ),
@@ -83,11 +74,6 @@ class _MoodChartsScreenState extends State<MoodChartsScreen> {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: SegmentedButton<String>(
-        style: SegmentedButton.styleFrom(backgroundColor: Colors.grey[200]),
-        segments: const [
-          ButtonSegment(value: 'Semanal', label: Text('Semanal')),
-          ButtonSegment(value: 'Mensual', label: Text('Mensual')),
-        ],
         selected: {_selectedTimeFrame},
         onSelectionChanged: (Set<String> newSelection) {
           setState(() {
@@ -95,6 +81,10 @@ class _MoodChartsScreenState extends State<MoodChartsScreen> {
             _futureData = _storage.getAllEntries();
           });
         },
+        segments: const [
+          ButtonSegment(value: 'Semanal', label: Text('Semanal')),
+          ButtonSegment(value: 'Mensual', label: Text('Mensual')),
+        ],
       ),
     );
   }
