@@ -10,8 +10,12 @@ class MoodEntry extends HiveObject{
   @HiveField(1)
   final DateTime date;
 
+  @HiveField(2)
+  final String? notes;
+
   MoodEntry({
     required this.rating,
     required this.date,
+    this.notes,
   });
 }

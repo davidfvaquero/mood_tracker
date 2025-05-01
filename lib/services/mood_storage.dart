@@ -64,7 +64,13 @@ class MoodStorage {
 
   Future<List<MoodEntry>> getAllEntries() async {
     final box = await _openBox();
-    return box.values.toList()
-    ..sort((a, b) => a.date.compareTo(b.date));
+    return box.values.toList()..sort((a, b) => a.date.compareTo(b.date));
+  }
+
+  Future<List<MoodEntry>> getEntriesWithNotes() async {
+    final box = await _openBox();
+    return box.values
+        .where((entry) => entry.notes != null && entry.notes!.isNotEmpty)
+        .toList();
   }
 }
