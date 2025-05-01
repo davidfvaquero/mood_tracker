@@ -13,11 +13,14 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
   Hive.registerAdapter(MoodEntryAdapter());
-  await Hive.openBox<MoodEntry>('moodEntries'); // Abrir la caja de Hive
+  await Hive.openBox<MoodEntry>('moodEntries');
+
+  final themeNotifier = ThemeNotifier();
+  await themeNotifier.loadThemePrefs();
 
   runApp(
     ChangeNotifierProvider(
-      create: (context) => ThemeNotifier(),
+      create: (context) => themeNotifier,
       child: const MoodTrackerApp(),
     ),
   );
