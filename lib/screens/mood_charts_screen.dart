@@ -24,11 +24,9 @@ class _MoodChartsScreenState extends State<MoodChartsScreen> {
   List<MoodEntry> _getFilteredData(List<MoodEntry> allData) {
     final days = _selectedTimeFrame == 'Semanal' ? 7 : 30;
     final cutoff = DateTime.now().subtract(Duration(days: days));
-    
-    return allData
-        .where((entry) => entry.date.isAfter(cutoff))
-        .toList()
-        ..sort((a, b) => a.date.compareTo(b.date));
+
+    return allData.where((entry) => entry.date.isAfter(cutoff)).toList()
+      ..sort((a, b) => a.date.compareTo(b.date));
   }
 
   @override
@@ -48,19 +46,48 @@ class _MoodChartsScreenState extends State<MoodChartsScreen> {
 
           final allData = snapshot.data!;
           final filteredData = _getFilteredData(allData);
+          final average = _calculateAverage(filteredData);
 
           return SingleChildScrollView(
             child: Column(
               children: [
                 _buildTimeFrameSelector(),
                 Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: filteredData.isEmpty
-                      ? const Center(child: Text('No hay datos disponibles'))
-                      : MoodChart(
-                          data: filteredData,
-                          timeFrame: _selectedTimeFrame,
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Card(
+                    child: ListTile(
+                      title: const Text('Promedio de estado de ánimo'),
+                      subtitle: Text(
+                        'En los últimos ${_selectedTimeFrame == 'Semanal' ? 7 : 30} días',
+                      ),
+                      trailing: CircleAvatar(
+                        backgroundColor:
+                            Theme.of(context).colorScheme.primaryContainer,
+                        child: Text(
+                          average.toStringAsFixed(1),
+                          style: TextStyle(
+                            color:
+                                Theme.of(
+                                  context,
+                                ).colorScheme.onPrimaryContainer,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child:
+                      filteredData.isEmpty
+                          ? const Center(
+                            child: Text('No hay datos disponibles'),
+                          )
+                          : MoodChart(
+                            data: filteredData,
+                            timeFrame: _selectedTimeFrame,
+                          ),
                 ),
               ],
             ),
@@ -68,6 +95,12 @@ class _MoodChartsScreenState extends State<MoodChartsScreen> {
         },
       ),
     );
+  }
+
+  double _calculateAverage(List<MoodEntry> data) {
+    if (data.isEmpty) return 0.0;
+    final total = data.fold(0.0, (sum, entry) => sum + entry.rating);
+    return total / data.length;
   }
 
   Widget _buildTimeFrameSelector() {
