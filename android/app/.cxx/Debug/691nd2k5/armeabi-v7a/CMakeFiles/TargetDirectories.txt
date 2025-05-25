@@ -1,0 +1,2 @@
+C:/Users/david/Desktop/Estudiarla/flutter/MoodTracker/mood_tracker/android/app/.cxx/Debug/691nd2k5/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Users/david/Desktop/Estudiarla/flutter/MoodTracker/mood_tracker/android/app/.cxx/Debug/691nd2k5/armeabi-v7a/CMakeFiles/rebuild_cache.dir
