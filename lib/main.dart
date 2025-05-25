@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:mood_tracker/services/mood_storage.dart';
 import 'package:provider/provider.dart';
 
 import 'models/mood_entry.dart';
@@ -19,8 +20,11 @@ void main() async {
   await themeNotifier.loadThemePrefs();
 
   runApp(
-    ChangeNotifierProvider(
-      create: (context) => themeNotifier,
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => ThemeNotifier()),
+        Provider(create: (_) => MoodStorage()),
+      ],
       child: const MoodTrackerApp(),
     ),
   );

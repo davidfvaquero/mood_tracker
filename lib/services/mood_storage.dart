@@ -73,4 +73,9 @@ class MoodStorage {
         .where((entry) => entry.notes != null && entry.notes!.isNotEmpty)
         .toList();
   }
+
+  Future<void> deleteAllData() async {
+    final box = await _openBox();
+    await box.clear();
+  }
 }

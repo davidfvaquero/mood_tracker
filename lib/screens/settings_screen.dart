@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:mood_tracker/services/mood_storage.dart';
 import 'package:mood_tracker/themes/theme_provider.dart';
+import 'privacy_security_screen.dart'; // Añade esta importación
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -18,26 +18,22 @@ class SettingsScreen extends StatelessWidget {
             onChanged: (value) {}, // TODO: Implementar lógica
           ),
           Consumer<ThemeNotifier>(
-            builder:
-                (context, theme, child) => SwitchListTile(
-                  title: const Text('Modo Oscuro'),
-                  secondary: const Icon(Icons.dark_mode),
-                  value: theme.isDarkMode,
-                  onChanged: (value) => theme.toggleTheme(value),
-                ),
+            builder: (context, theme, child) => SwitchListTile(
+              title: const Text('Modo Oscuro'),
+              secondary: const Icon(Icons.dark_mode),
+              value: theme.isDarkMode,
+              onChanged: (value) => theme.toggleTheme(value),
+            ),
           ),
-          const ListTile(
-            leading: Icon(Icons.security),
-            title: Text('Privacidad y Seguridad'),
-          ),
-          ElevatedButton(
-            onPressed: () async {
-              await MoodStorage().deleteDuplicates();
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Fechas duplicadas eliminadas')),
-              );
-            },
-            child: const Text('Eliminar fechas duplicadas'),
+          ListTile(
+            leading: const Icon(Icons.security),
+            title: const Text('Privacidad y Seguridad'),
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const PrivacySecurityScreen(),
+              ),
+            ),
           ),
         ],
       ),
