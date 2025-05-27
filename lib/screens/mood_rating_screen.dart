@@ -11,7 +11,7 @@ class MoodRatingScreen extends StatefulWidget {
 
 class _MoodRatingScreenState extends State<MoodRatingScreen> {
   final MoodStorage _storage = MoodStorage();
-  int _selectedRating = 0;
+  int _selectedRating = 1; // Cambiamos el valor inicial a 1
   final TextEditingController _notesController = TextEditingController();
 
   void _saveMood() async {
@@ -23,23 +23,22 @@ class _MoodRatingScreenState extends State<MoodRatingScreen> {
     if (existingEntry != null) {
       final confirm = await showDialog<bool>(
         context: context,
-        builder:
-            (context) => AlertDialog(
-              title: const Text('Entrada existente'),
-              content: const Text(
-                'Ya tienes una puntuación para hoy. ¿Sobrescribir?',
-              ),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(context, false),
-                  child: const Text('Cancelar'),
-                ),
-                TextButton(
-                  onPressed: () => Navigator.pop(context, true),
-                  child: const Text('Sobrescribir'),
-                ),
-              ],
+        builder: (context) => AlertDialog(
+          title: const Text('Entrada existente'),
+          content: const Text(
+            'Ya tienes una puntuación para hoy. ¿Sobrescribir?',
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context, false),
+              child: const Text('Cancelar'),
             ),
+            TextButton(
+              onPressed: () => Navigator.pop(context, true),
+              child: const Text('Sobrescribir'),
+            ),
+          ],
+        ),
       );
       if (confirm != true) return;
     }
@@ -73,20 +72,35 @@ class _MoodRatingScreenState extends State<MoodRatingScreen> {
                 style: TextStyle(fontSize: 24),
               ),
               const SizedBox(height: 30),
-              Wrap(
-                spacing: 10,
-                children: List.generate(10, (index) {
-                  final rating = index + 1;
-                  return ChoiceChip(
-                    label: Text('$rating'),
-                    selected: _selectedRating == rating,
-                    onSelected: (selected) {
+              Column(
+                children: [
+                  Text(
+                    '$_selectedRating',
+                    style: const TextStyle(
+                      fontSize: 32,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue,
+                    ),
+                  ),
+                  Slider(
+                    value: _selectedRating.toDouble(),
+                    min: 1,
+                    max: 10,
+                    divisions: 9,
+                    onChanged: (double value) {
                       setState(() {
-                        _selectedRating = selected ? rating : 0;
+                        _selectedRating = value.round();
                       });
                     },
-                  );
-                }),
+                  ),
+                  const Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('1'),
+                      Text('10'),
+                    ],
+                  ),
+                ],
               ),
               const SizedBox(height: 30),
               TextField(
