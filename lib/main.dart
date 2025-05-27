@@ -71,7 +71,7 @@ class _MainScreenState extends State<MainScreen> {
   final List<Widget> _screens = [
     const MoodRatingScreen(),
     const MoodChartsScreen(),
-    const TipsScreen(),
+    TipsScreen(),
     const SettingsScreen(),
   ];
 
