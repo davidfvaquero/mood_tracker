@@ -87,6 +87,8 @@ unlinked_spec.ds
 *.jks
 local.properties
 **/.cxx/
+android/app/.cxx/
+android/app/build/
 
 # iOS/XCode related
 **/ios/**/*.mode1v3
