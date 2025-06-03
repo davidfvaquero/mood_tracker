@@ -90,7 +90,7 @@ class _MainScreenState extends State<MainScreen> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.bar_chart),
-            label: 'Gráficas',
+            label: 'Gráficos',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.lightbulb),
