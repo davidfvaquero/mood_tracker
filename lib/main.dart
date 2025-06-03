@@ -1,24 +1,58 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:mood_tracker/services/mood_storage.dart';
+import 'package:provider/provider.dart';
 
+import 'models/mood_entry.dart';
 import 'screens/mood_rating_screen.dart';
 import 'screens/mood_charts_screen.dart';
 import 'screens/settings_screen.dart';
 import 'screens/tips_screen.dart';
+import 'themes/theme_provider.dart';
 
-void main() => runApp(const MoodTrackerApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+  Hive.registerAdapter(MoodEntryAdapter());
+  await Hive.openBox<MoodEntry>('moodEntries');
+
+  final themeNotifier = ThemeNotifier();
+  await themeNotifier.loadThemePrefs();
+
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => ThemeNotifier()),
+        Provider(create: (_) => MoodStorage()),
+      ],
+      child: const MoodTrackerApp(),
+    ),
+  );
+}
 
 class MoodTrackerApp extends StatelessWidget {
   const MoodTrackerApp({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final themeNotifier = Provider.of<ThemeNotifier>(context);
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Mood Tracker',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+      theme: ThemeData.light().copyWith(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.blue,
+          brightness: Brightness.light,
+        ),
       ),
+      darkTheme: ThemeData.dark().copyWith(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.blueGrey,
+          brightness: Brightness.dark,
+        ),
+      ),
+      themeMode: themeNotifier.themeMode,
       home: const MainScreen(),
     );
   }
@@ -37,7 +71,7 @@ class _MainScreenState extends State<MainScreen> {
   final List<Widget> _screens = [
     const MoodRatingScreen(),
     const MoodChartsScreen(),
-    const TipsScreen(),
+    TipsScreen(),
     const SettingsScreen(),
   ];
 
@@ -52,13 +86,19 @@ class _MainScreenState extends State<MainScreen> {
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.sentiment_satisfied),
-            label: 'Rate Mood',
+            label: 'Estado de ánimo',
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.bar_chart), label: 'Charts'),
-          BottomNavigationBarItem(icon: Icon(Icons.lightbulb), label: 'Tips'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.bar_chart),
+            label: 'Gráficos',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.lightbulb),
+            label: 'Consejos',
+          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
-            label: 'Settings',
+            label: 'Configuración',
           ),
         ],
       ),

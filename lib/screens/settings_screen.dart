@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:mood_tracker/themes/theme_provider.dart';
+import 'privacy_security_screen.dart'; // Añade esta importación
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -9,21 +12,26 @@ class SettingsScreen extends StatelessWidget {
       appBar: AppBar(title: const Text('Ajustes')),
       body: ListView(
         children: [
-          SwitchListTile(
-            title: const Text('Notificaciones'),
-            value: true,
-            onChanged: (value) {}, // TODO: Implementar lógica
+          Consumer<ThemeNotifier>(
+            builder:
+                (context, theme, child) => SwitchListTile(
+                  title: const Text('Modo Oscuro'),
+                  secondary: const Icon(Icons.dark_mode),
+                  value: theme.isDarkMode,
+                  onChanged: (value) => theme.toggleTheme(value),
+                ),
           ),
-          const ListTile(
-            leading: Icon(Icons.palette),
-            title: Text('Tema de la aplicación'),
-            // TODO: Implementar selector de tema
+          ListTile(
+            leading: const Icon(Icons.security),
+            title: const Text('Privacidad y Seguridad'),
+            onTap:
+                () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const PrivacySecurityScreen(),
+                  ),
+                ),
           ),
-          const ListTile(
-            leading: Icon(Icons.security),
-            title: Text('Privacidad y Seguridad'),
-          ),
-          // Añadir más opciones según necesidades
         ],
       ),
     );
