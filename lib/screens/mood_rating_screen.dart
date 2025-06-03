@@ -23,22 +23,23 @@ class _MoodRatingScreenState extends State<MoodRatingScreen> {
     if (existingEntry != null) {
       final confirm = await showDialog<bool>(
         context: context,
-        builder: (context) => AlertDialog(
-          title: const Text('Entrada existente'),
-          content: const Text(
-            'Ya tienes una puntuación para hoy. ¿Sobrescribir?',
-          ),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context, false),
-              child: const Text('Cancelar'),
+        builder:
+            (context) => AlertDialog(
+              title: const Text('Entrada existente'),
+              content: const Text(
+                'Ya tienes una puntuación para hoy. ¿Sobrescribir?',
+              ),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(context, false),
+                  child: const Text('Cancelar'),
+                ),
+                TextButton(
+                  onPressed: () => Navigator.pop(context, true),
+                  child: const Text('Sobrescribir'),
+                ),
+              ],
             ),
-            TextButton(
-              onPressed: () => Navigator.pop(context, true),
-              child: const Text('Sobrescribir'),
-            ),
-          ],
-        ),
       );
       if (confirm != true) return;
     }
@@ -96,8 +97,11 @@ class _MoodRatingScreenState extends State<MoodRatingScreen> {
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('1'),
-                      Text('10'),
+                      Icon(
+                        Icons.sentiment_very_dissatisfied,
+                        color: Colors.red,
+                      ),
+                      Icon(Icons.sentiment_very_satisfied, color: Colors.green),
                     ],
                   ),
                 ],

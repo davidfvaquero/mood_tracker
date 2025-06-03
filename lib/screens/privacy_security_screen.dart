@@ -63,23 +63,6 @@ class PrivacySecurityScreen extends StatelessWidget {
                     },
                   ),
                   const SizedBox(height: 20),
-                  ElevatedButton.icon(
-                    icon: const Icon(Icons.merge_type),
-                    label: const Text('Eliminar fechas duplicadas'),
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: const Size(double.infinity, 50),
-                    ),
-                    onPressed: () async {
-                      await moodStorage.deleteDuplicates();
-                      if (context.mounted) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text('Fechas duplicadas eliminadas'),
-                          ),
-                        );
-                      }
-                    },
-                  ),
                 ],
               ),
             ),
