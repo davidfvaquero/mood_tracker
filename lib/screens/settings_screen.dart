@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:mood_tracker/themes/theme_provider.dart';
-import 'privacy_security_screen.dart'; // Añade esta importación
+import 'privacy_security_screen.dart';
+import 'notification_settings_screen.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -19,6 +20,18 @@ class SettingsScreen extends StatelessWidget {
                   secondary: const Icon(Icons.dark_mode),
                   value: theme.isDarkMode,
                   onChanged: (value) => theme.toggleTheme(value),
+                ),
+          ),
+          ListTile(
+            leading: const Icon(Icons.notifications),
+            title: const Text('Notificaciones'),
+            subtitle: const Text('Configura recordatorios diarios'),
+            onTap:
+                () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const NotificationSettingsScreen(),
+                  ),
                 ),
           ),
           ListTile(

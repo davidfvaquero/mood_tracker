@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:mood_tracker/services/mood_storage.dart';
+import 'package:mood_tracker/services/notification_service.dart';
 import 'package:provider/provider.dart';
 
 import 'models/mood_entry.dart';
@@ -16,14 +17,19 @@ void main() async {
   Hive.registerAdapter(MoodEntryAdapter());
   await Hive.openBox<MoodEntry>('moodEntries');
 
+  // Initialize notification service
+  final notificationService = NotificationService();
+  await notificationService.initialize();
+
   final themeNotifier = ThemeNotifier();
   await themeNotifier.loadThemePrefs();
 
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => ThemeNotifier()),
+        ChangeNotifierProvider(create: (_) => themeNotifier),
         Provider(create: (_) => MoodStorage()),
+        Provider(create: (_) => notificationService),
       ],
       child: const MoodTrackerApp(),
     ),
