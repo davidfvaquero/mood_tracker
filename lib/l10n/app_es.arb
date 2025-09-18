@@ -292,5 +292,276 @@
   "overwriteEntry": "Ya tienes una puntuación para hoy. ¿Sobrescribir?",
   "overwrite": "Sobrescribir",
   "moodSavedCorrectly": "Estado guardado correctamente",
-  "myCurrentMood": "Mi Estado Actual"
+  "myCurrentMood": "Mi Estado Actual",
+
+  "usefulTips": "Consejos Útiles",
+  
+  "breathingTipTitle": "Haz 5 minutos de respiración profunda",
+  "breathingTipDescription": "Técnica de relajación para reducir el estrés",
+  "breathingTipStep1": "Siéntate en posición cómoda",
+  "breathingTipStep2": "Coloca una mano en tu pecho y otra en el abdomen",
+  "breathingTipStep3": "Inhala profundamente por 4 segundos",
+  "breathingTipStep4": "Exhala lentamente durante 6 segundos",
+  "breathingTipStep5": "Repite durante 5 minutos",
+
+  "walkTipTitle": "Sal a caminar al aire libre",
+  "walkTipDescription": "Reconecta con la naturaleza y despeja tu mente",
+  "walkTipStep1": "Elige un parque o área natural cercana",
+  "walkTipStep2": "Camina a ritmo moderado",
+  "walkTipStep3": "Observa tu entorno",
+  "walkTipStep4": "Respira profundamente",
+  "walkTipStep5": "Desconéctate de dispositivos electrónicos",
+
+  "gratitudeTipTitle": "Escribe tres cosas por las que estés agradecido",
+  "gratitudeTipDescription": "Practica la gratitud para mejorar tu perspectiva emocional",
+  "gratitudeTipStep1": "Toma un cuaderno o abre una app de notas",
+  "gratitudeTipStep2": "Escribe tres cosas que te hagan sentir agradecido",
+  "gratitudeTipStep3": "Sé específico y reflexiona sobre por qué te hacen sentir bien",
+  "gratitudeTipStep4": "Repite esta práctica diariamente",
+
+  "callTipTitle": "Llama a un amigo o familiar",
+  "callTipDescription": "Fortalece conexiones sociales para mejorar tu ánimo",
+  "callTipStep1": "Elige a alguien con quien te sientas cómodo",
+  "callTipStep2": "Llámale o envíale un mensaje de voz",
+  "callTipStep3": "Comparte cómo te sientes",
+  "callTipStep4": "Escucha activamente su respuesta",
+  "callTipStep5": "Agradece por su apoyo",
+
+  "mindfulnessTipTitle": "Practica mindfulness durante 10 minutos",
+  "mindfulnessTipDescription": "Enfócate en el momento presente para reducir la ansiedad",
+  "mindfulnessTipStep1": "Siéntate con postura erguida",
+  "mindfulnessTipStep2": "Enfócate en tu respiración natural",
+  "mindfulnessTipStep3": "Observa pensamientos sin juzgar",
+  "mindfulnessTipStep4": "Usa un ancla sensorial (sonidos, sensaciones)",
+  "mindfulnessTipStep5": "Vuelve suavemente al presente cuando divagues",
+
+  "screenBreakTipTitle": "Toma un descanso lejos de pantallas",
+  "screenBreakTipDescription": "Desconéctate de dispositivos para reducir la fatiga visual",
+  "screenBreakTipStep1": "Busca un lugar tranquilo",
+  "screenBreakTipStep2": "Cierra los ojos y respira profundamente",
+  "screenBreakTipStep3": "Estira el cuello y hombros",
+  "screenBreakTipStep4": "Haz una caminata corta si es posible",
+  "screenBreakTipStep5": "Vuelve a tus actividades con la mente despejada",
+
+  "musicTipTitle": "Escucha música relajante",
+  "musicTipDescription": "Utiliza la música para calmar tu mente y cuerpo",
+  "musicTipStep1": "Elige una lista de reproducción o álbum relajante",
+  "musicTipStep2": "Encuentra un lugar cómodo para sentarte o acostarte",
+  "musicTipStep3": "Cierra los ojos y concéntrate en la música",
+  "musicTipStep4": "Permite que la música te envuelva y te relaje",
+  "musicTipStep5": "Disfruta del momento sin distracciones",
+
+  "stretchTipTitle": "Practica estiramientos suaves",
+  "stretchTipDescription": "Alivia la tensión muscular y mejora la circulación",
+  "stretchTipStep1": "Encuentra un espacio cómodo",
+  "stretchTipStep2": "Realiza estiramientos de cuello, hombros y espalda",
+  "stretchTipStep3": "Mantén cada estiramiento durante 15-30 segundos",
+  "stretchTipStep4": "Respira profundamente mientras te estiras",
+  "stretchTipStep5": "Repite según sea necesario",
+
+  "hobbyTipTitle": "Dedica tiempo a un hobby que disfrutes",
+  "hobbyTipDescription": "Realiza una actividad que te apasione para mejorar tu estado de ánimo",
+  "hobbyTipStep1": "Elige un hobby que te guste (leer, pintar, cocinar)",
+  "hobbyTipStep2": "Dedica al menos 30 minutos a esta actividad",
+  "hobbyTipStep3": "Permítete disfrutar sin distracciones",
+  "hobbyTipStep4": "Reflexiona sobre cómo te sientes al finalizar",
+
+  "waterTipTitle": "Bebe agua para mantenerte hidratado",
+  "waterTipDescription": "La hidratación es clave para el bienestar físico y mental",
+  "waterTipStep1": "Llena un vaso o botella con agua fresca",
+  "waterTipStep2": "Bebe sorbos pequeños y constantes",
+  "waterTipStep3": "Presta atención a cómo te sientes al hidratarte",
+  "waterTipStep4": "Repite cada vez que sientas sed",
+
+  "affirmationTipTitle": "Repite una afirmación positiva en voz alta",
+  "affirmationTipDescription": "Refuerza tu autoestima y confianza",
+  "affirmationTipStep1": "Elige una afirmación positiva (ej. \"Soy capaz y valioso\")",
+  "affirmationTipStep2": "Encuentra un lugar tranquilo para concentrarte",
+  "affirmationTipStep3": "Repite la afirmación en voz alta varias veces",
+  "affirmationTipStep4": "Visualiza el significado de la afirmación",
+  "affirmationTipStep5": "Siente cómo te empodera",
+
+  "goalTipTitle": "Organiza una pequeña meta diaria y celébrala",
+  "goalTipDescription": "Establece un objetivo alcanzable para mejorar tu motivación",
+  "goalTipStep1": "Define una meta simple",
+  "goalTipStep2": "Divídela en pasos pequeños",
+  "goalTipStep3": "Establece un plazo realista",
+  "goalTipStep4": "Alcanza la meta y reconoce tu logro",
+  "goalTipStep5": "Celebra con algo que disfrutes",
+
+  "helpTipTitle": "Ofrece ayuda a alguien que lo necesite",
+  "helpTipDescription": "Altruismo para generar bienestar mutuo",
+  "helpTipStep1": "Identifica a alguien que necesite apoyo",
+  "helpTipStep2": "Ofrece tu ayuda de manera genuina",
+  "helpTipStep3": "Escucha sus necesidades y preocupaciones",
+  "helpTipStep4": "Brinda tu apoyo de la mejor manera posible",
+  "helpTipStep5": "Reflexiona sobre cómo te sientes al ayudar",
+
+  "organizeTipTitle": "Ordena un espacio de tu hogar",
+  "organizeTipDescription": "Organiza un área para reducir el desorden mental",
+  "organizeTipStep1": "Elige un espacio pequeño (escritorio, armario)",
+  "organizeTipStep2": "Retira todo lo innecesario",
+  "organizeTipStep3": "Organiza lo que queda de manera funcional",
+  "organizeTipStep4": "Limpia el área para mayor claridad",
+  "organizeTipStep5": "Disfruta del nuevo orden",
+
+  "petTipTitle": "Acaricia a una mascota o planta",
+  "petTipDescription": "Conexión con seres vivos para reducir estrés",
+  "petTipStep1": "Busca a tu mascota o una planta cercana",
+  "petTipStep2": "Tómate un momento para acariciarla suavemente",
+  "petTipStep3": "Observa sus reacciones y disfruta del momento",
+  "petTipStep4": "Respira profundamente mientras interactúas",
+  "petTipStep5": "Agradece por la compañía que te brindan",
+
+  "skyTipTitle": "Observa el cielo",
+  "skyTipDescription": "Conéctate con la naturaleza y relaja tu mente",
+  "skyTipStep1": "Encuentra un lugar cómodo al aire libre",
+  "skyTipStep2": "Mira hacia arriba y observa las nubes o estrellas",
+  "skyTipStep3": "Respira profundamente y relájate",
+  "skyTipStep4": "Permite que tu mente divague mientras observas",
+  "skyTipStep5": "Disfruta de la calma que te brinda el cielo",
+
+  "socialMediaTipTitle": "Desconéctate de redes sociales por una hora",
+  "socialMediaTipDescription": "Reduce la sobrecarga de información y mejora tu bienestar",
+  "socialMediaTipStep1": "Configura una alarma para una hora",
+  "socialMediaTipStep2": "Cierra todas las aplicaciones de redes sociales",
+  "socialMediaTipStep3": "Activa modo avión o silencia notificaciones",
+  "socialMediaTipStep4": "Dedica este tiempo a actividades offline (leer, meditar)",
+  "socialMediaTipStep5": "Reflexiona sobre cómo te sientes al desconectarte",
+
+  "visualizeTipTitle": "Visualiza un lugar que te transmita paz",
+  "visualizeTipDescription": "Utiliza la visualización para reducir la ansiedad",
+  "visualizeTipStep1": "Encuentra un lugar tranquilo para sentarte",
+  "visualizeTipStep2": "Cierra los ojos y respira profundamente",
+  "visualizeTipStep3": "Imagina un lugar que te haga sentir en paz (playa, bosque)",
+  "visualizeTipStep4": "Visualiza los detalles: sonidos, olores, sensaciones",
+  "visualizeTipStep5": "Permite que esa sensación de paz te envuelva",
+
+  "recipeTipTitle": "Prueba una nueva receta saludable",
+  "recipeTipDescription": "Cocina terapéutica para estimular creatividad",
+  "recipeTipStep1": "Elige ingredientes nutritivos",
+  "recipeTipStep2": "Enfócate en el proceso, no solo en el resultado",
+  "recipeTipStep3": "Experimenta con combinaciones",
+  "recipeTipStep4": "Disfruta la comida conscientemente",
+
+  "relaxationCategory": "Relajación",
+  "exerciseCategory": "Ejercicio",
+  "mindfulnessCategory": "Mindfulness",
+  "socialCategory": "Social",
+  "restCategory": "Descanso",
+  "leisureCategory": "Ocio",
+  "healthCategory": "Salud",
+  "emotionalCategory": "Emocional",
+  "productivityCategory": "Productividad",
+  "creativityCategory": "Creatividad",
+
+  "duration5to10": "5-10 min",
+  "duration15to30": "15-30 min",
+  "duration5": "5 min",
+  "duration10": "10 min",
+  "duration10to30": "10-30 min",
+  "duration10to15": "10-15 min",
+  "duration30to60": "30-60 min",
+  "duration2": "2 min",
+  "duration3": "3 min",
+  "durationVariable": "Variable",
+  "duration1hour": "1 hora",
+
+  "emotionsActivitiesAndMore": "Emociones, actividades y más",
+  "justMoodState": "Solo estado de ánimo",
+  "yourDaySoFar": "Tu día hasta ahora",
+  "energyWithValue": "Energía: {value}/5",
+  "@energyWithValue": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "emotionsWithList": "Emociones: {emotions}",
+  "@emotionsWithList": {
+    "placeholders": {
+      "emotions": {
+        "type": "String"
+      }
+    }
+  },
+  "activitiesWithList": "Actividades: {activities}",
+  "@activitiesWithList": {
+    "placeholders": {
+      "activities": {
+        "type": "String"
+      }
+    }
+  },
+  "todayAt": "Hoy {time}",
+  "@todayAt": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "yesterdayAt": "Ayer {time}",
+  "@yesterdayAt": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "moodStateRegisteredSuccessfully": "¡Estado de ánimo registrado exitosamente!",
+  "generalMoodState": "Estado de Ánimo General",
+  "selectEmotionsAndIntensity": "Selecciona las emociones que sientes y su intensidad (1-5)",
+  "energyAndStress": "Energía y Estrés",
+  "energyLevelWithValue": "Nivel de Energía: {level}/5",
+  "@energyLevelWithValue": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "stressLevelWithValue": "Nivel de Estrés: {level}/5",
+  "@stressLevelWithValue": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "selectActivitiesYouDid": "Selecciona las actividades que realizaste",
+  "holdToPressToAdjustIntensity": "Mantén presionado para ajustar intensidad",
+  "scoreWithValue": "Puntuación: {score}/10",
+  "@scoreWithValue": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "additionalNotesTitle": "Notas Adicionales",
+  "intensityWithValue": "Intensidad: {intensity}/5",
+  "@intensityWithValue": {
+    "placeholders": {
+      "intensity": {
+        "type": "int"
+      }
+    }
+  },
+  "saveMoodState": "Guardar Estado de Ánimo",
+  "quickCheckinTitle": "Check-in Rápido",
+  "fastCheckTitle": "Rápido",
+  "errorSavingWithMessage": "Error al guardar: {error}",
+  "@errorSavingWithMessage": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "aboutQuickCheckinTitle": "Sobre el Check-in Rápido",
+  "quickCheckinDetails": "• Registra tu estado de ánimo en segundos\\n• Perfecto para múltiples entradas diarias\\n• Usa los botones rápidos o personaliza tu selección\\n• Puedes agregar más detalles después si quieres",
+  "customSelectionTitle": "Selección Personalizada",
+  "saveMoodStateTitle": "Guardar Estado de Ánimo"
 }

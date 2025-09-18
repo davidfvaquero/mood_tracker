@@ -116,12 +116,13 @@ class _EnhancedHomeScreenState extends State<EnhancedHomeScreen> {
   }
 
   Widget _buildActionCards() {
+    final localizations = AppLocalizations.of(context)!;
     return Row(
       children: [
         Expanded(
           child: _buildActionCard(
-            title: 'Registro Detallado',
-            subtitle: 'Emociones, actividades y más',
+            title: localizations.detailedEntry,
+            subtitle: localizations.emotionsActivitiesAndMore,
             icon: Icons.sentiment_very_satisfied,
             color: Colors.blue,
             onTap: () async {
@@ -138,8 +139,8 @@ class _EnhancedHomeScreenState extends State<EnhancedHomeScreen> {
         const SizedBox(width: 16),
         Expanded(
           child: _buildActionCard(
-            title: 'Check-in Rápido',
-            subtitle: 'Solo estado de ánimo',
+            title: localizations.quickCheckin,
+            subtitle: localizations.justMoodState,
             icon: Icons.speed,
             color: Colors.green,
             onTap: () {
@@ -198,6 +199,7 @@ class _EnhancedHomeScreenState extends State<EnhancedHomeScreen> {
   }
 
   Widget _buildTodaysSummary() {
+    final localizations = AppLocalizations.of(context)!;
     if (_todayEntry == null) {
       return const SizedBox.shrink();
     }
@@ -216,7 +218,7 @@ class _EnhancedHomeScreenState extends State<EnhancedHomeScreen> {
                 ),
                 const SizedBox(width: 8),
                 Text(
-                  'Tu día hasta ahora',
+                  localizations.yourDaySoFar,
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
               ],
@@ -247,7 +249,7 @@ class _EnhancedHomeScreenState extends State<EnhancedHomeScreen> {
                     borderRadius: BorderRadius.circular(16),
                   ),
                   child: Text(
-                    'Energía: ${_todayEntry!.energyLevel}/5',
+                    localizations.energyWithValue(_todayEntry!.energyLevel),
                     style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
@@ -260,7 +262,7 @@ class _EnhancedHomeScreenState extends State<EnhancedHomeScreen> {
             if (_todayEntry!.hasEmotions) ...[
               const SizedBox(height: 8),
               Text(
-                'Emociones: ${_todayEntry!.emotions.keys.take(3).join(', ')}',
+                localizations.emotionsWithList(_todayEntry!.emotions.keys.take(3).join(', ')),
                 style: TextStyle(color: Colors.grey[600]),
               ),
             ],
@@ -268,7 +270,7 @@ class _EnhancedHomeScreenState extends State<EnhancedHomeScreen> {
             if (_todayEntry!.hasActivities) ...[
               const SizedBox(height: 4),
               Text(
-                'Actividades: ${_todayEntry!.activities.take(3).join(', ')}',
+                localizations.activitiesWithList(_todayEntry!.activities.take(3).join(', ')),
                 style: TextStyle(color: Colors.grey[600]),
               ),
             ],
@@ -383,9 +385,9 @@ class _EnhancedHomeScreenState extends State<EnhancedHomeScreen> {
     final difference = now.difference(date);
     
     if (difference.inDays == 0) {
-      return 'Hoy ${date.hour.toString().padLeft(2, '0')}:${date.minute.toString().padLeft(2, '0')}';
+      return AppLocalizations.of(context)!.todayAt('${date.hour.toString().padLeft(2, '0')}:${date.minute.toString().padLeft(2, '0')}');
     } else if (difference.inDays == 1) {
-      return 'Ayer ${date.hour.toString().padLeft(2, '0')}:${date.minute.toString().padLeft(2, '0')}';
+      return AppLocalizations.of(context)!.yesterdayAt('${date.hour.toString().padLeft(2, '0')}:${date.minute.toString().padLeft(2, '0')}');
     } else {
       return '${date.day}/${date.month} ${date.hour.toString().padLeft(2, '0')}:${date.minute.toString().padLeft(2, '0')}';
     }
@@ -393,6 +395,7 @@ class _EnhancedHomeScreenState extends State<EnhancedHomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Mood Tracker'),

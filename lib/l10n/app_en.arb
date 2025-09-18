@@ -292,5 +292,276 @@
   "overwriteEntry": "You already have a score for today. Overwrite?",
   "overwrite": "Overwrite",
   "moodSavedCorrectly": "Mood saved correctly",
-  "myCurrentMood": "My Current Mood"
+  "myCurrentMood": "My Current Mood",
+
+  "usefulTips": "Useful Tips",
+  
+  "breathingTipTitle": "Do 5 minutes of deep breathing",
+  "breathingTipDescription": "Relaxation technique to reduce stress",
+  "breathingTipStep1": "Sit in a comfortable position",
+  "breathingTipStep2": "Place one hand on your chest and another on your abdomen",
+  "breathingTipStep3": "Breathe deeply for 4 seconds",
+  "breathingTipStep4": "Exhale slowly for 6 seconds",
+  "breathingTipStep5": "Repeat for 5 minutes",
+
+  "walkTipTitle": "Go for a walk outdoors",
+  "walkTipDescription": "Reconnect with nature and clear your mind",
+  "walkTipStep1": "Choose a nearby park or natural area",
+  "walkTipStep2": "Walk at a moderate pace",
+  "walkTipStep3": "Observe your surroundings",
+  "walkTipStep4": "Breathe deeply",
+  "walkTipStep5": "Disconnect from electronic devices",
+
+  "gratitudeTipTitle": "Write three things you're grateful for",
+  "gratitudeTipDescription": "Practice gratitude to improve your emotional perspective",
+  "gratitudeTipStep1": "Take a notebook or open a notes app",
+  "gratitudeTipStep2": "Write three things that make you feel grateful",
+  "gratitudeTipStep3": "Be specific and reflect on why they make you feel good",
+  "gratitudeTipStep4": "Repeat this practice daily",
+
+  "callTipTitle": "Call a friend or family member",
+  "callTipDescription": "Strengthen social connections to improve your mood",
+  "callTipStep1": "Choose someone you feel comfortable with",
+  "callTipStep2": "Call them or send a voice message",
+  "callTipStep3": "Share how you feel",
+  "callTipStep4": "Listen actively to their response",
+  "callTipStep5": "Thank them for their support",
+
+  "mindfulnessTipTitle": "Practice mindfulness for 10 minutes",
+  "mindfulnessTipDescription": "Focus on the present moment to reduce anxiety",
+  "mindfulnessTipStep1": "Sit with an upright posture",
+  "mindfulnessTipStep2": "Focus on your natural breathing",
+  "mindfulnessTipStep3": "Observe thoughts without judging",
+  "mindfulnessTipStep4": "Use a sensory anchor (sounds, sensations)",
+  "mindfulnessTipStep5": "Gently return to the present when your mind wanders",
+
+  "screenBreakTipTitle": "Take a break away from screens",
+  "screenBreakTipDescription": "Disconnect from devices to reduce visual fatigue",
+  "screenBreakTipStep1": "Find a quiet place",
+  "screenBreakTipStep2": "Close your eyes and breathe deeply",
+  "screenBreakTipStep3": "Stretch your neck and shoulders",
+  "screenBreakTipStep4": "Take a short walk if possible",
+  "screenBreakTipStep5": "Return to your activities with a clear mind",
+
+  "musicTipTitle": "Listen to relaxing music",
+  "musicTipDescription": "Use music to calm your mind and body",
+  "musicTipStep1": "Choose a relaxing playlist or album",
+  "musicTipStep2": "Find a comfortable place to sit or lie down",
+  "musicTipStep3": "Close your eyes and focus on the music",
+  "musicTipStep4": "Allow the music to envelop and relax you",
+  "musicTipStep5": "Enjoy the moment without distractions",
+
+  "stretchTipTitle": "Practice gentle stretches",
+  "stretchTipDescription": "Relieve muscle tension and improve circulation",
+  "stretchTipStep1": "Find a comfortable space",
+  "stretchTipStep2": "Perform neck, shoulder, and back stretches",
+  "stretchTipStep3": "Hold each stretch for 15-30 seconds",
+  "stretchTipStep4": "Breathe deeply while stretching",
+  "stretchTipStep5": "Repeat as needed",
+
+  "hobbyTipTitle": "Dedicate time to a hobby you enjoy",
+  "hobbyTipDescription": "Do an activity you're passionate about to improve your mood",
+  "hobbyTipStep1": "Choose a hobby you like (reading, painting, cooking)",
+  "hobbyTipStep2": "Dedicate at least 30 minutes to this activity",
+  "hobbyTipStep3": "Allow yourself to enjoy without distractions",
+  "hobbyTipStep4": "Reflect on how you feel when finished",
+
+  "waterTipTitle": "Drink water to stay hydrated",
+  "waterTipDescription": "Hydration is key to physical and mental wellbeing",
+  "waterTipStep1": "Fill a glass or bottle with fresh water",
+  "waterTipStep2": "Take small, constant sips",
+  "waterTipStep3": "Pay attention to how you feel when hydrating",
+  "waterTipStep4": "Repeat whenever you feel thirsty",
+
+  "affirmationTipTitle": "Repeat a positive affirmation out loud",
+  "affirmationTipDescription": "Reinforce your self-esteem and confidence",
+  "affirmationTipStep1": "Choose a positive affirmation (e.g., 'I am capable and valuable')",
+  "affirmationTipStep2": "Find a quiet place to concentrate",
+  "affirmationTipStep3": "Repeat the affirmation out loud several times",
+  "affirmationTipStep4": "Visualize the meaning of the affirmation",
+  "affirmationTipStep5": "Feel how it empowers you",
+
+  "goalTipTitle": "Set a small daily goal and celebrate it",
+  "goalTipDescription": "Establish an achievable objective to improve your motivation",
+  "goalTipStep1": "Define a simple goal",
+  "goalTipStep2": "Divide it into small steps",
+  "goalTipStep3": "Set a realistic deadline",
+  "goalTipStep4": "Achieve the goal and recognize your accomplishment",
+  "goalTipStep5": "Celebrate with something you enjoy",
+
+  "helpTipTitle": "Offer help to someone who needs it",
+  "helpTipDescription": "Altruism to generate mutual wellbeing",
+  "helpTipStep1": "Identify someone who needs support",
+  "helpTipStep2": "Offer your help genuinely",
+  "helpTipStep3": "Listen to their needs and concerns",
+  "helpTipStep4": "Provide your support in the best way possible",
+  "helpTipStep5": "Reflect on how you feel when helping",
+
+  "organizeTipTitle": "Organize a space in your home",
+  "organizeTipDescription": "Organize an area to reduce mental clutter",
+  "organizeTipStep1": "Choose a small space (desk, closet)",
+  "organizeTipStep2": "Remove everything unnecessary",
+  "organizeTipStep3": "Organize what remains functionally",
+  "organizeTipStep4": "Clean the area for greater clarity",
+  "organizeTipStep5": "Enjoy the new order",
+
+  "petTipTitle": "Pet an animal or plant",
+  "petTipDescription": "Connection with living beings to reduce stress",
+  "petTipStep1": "Look for your pet or a nearby plant",
+  "petTipStep2": "Take a moment to pet it gently",
+  "petTipStep3": "Observe their reactions and enjoy the moment",
+  "petTipStep4": "Breathe deeply while interacting",
+  "petTipStep5": "Be grateful for the company they provide",
+
+  "skyTipTitle": "Observe the sky",
+  "skyTipDescription": "Connect with nature and relax your mind",
+  "skyTipStep1": "Find a comfortable place outdoors",
+  "skyTipStep2": "Look up and observe the clouds or stars",
+  "skyTipStep3": "Breathe deeply and relax",
+  "skyTipStep4": "Allow your mind to wander while observing",
+  "skyTipStep5": "Enjoy the calm that the sky brings you",
+
+  "socialMediaTipTitle": "Disconnect from social media for an hour",
+  "socialMediaTipDescription": "Reduce information overload and improve your wellbeing",
+  "socialMediaTipStep1": "Set an alarm for one hour",
+  "socialMediaTipStep2": "Close all social media applications",
+  "socialMediaTipStep3": "Activate airplane mode or silence notifications",
+  "socialMediaTipStep4": "Dedicate this time to offline activities (reading, meditating)",
+  "socialMediaTipStep5": "Reflect on how you feel when disconnecting",
+
+  "visualizeTipTitle": "Visualize a place that brings you peace",
+  "visualizeTipDescription": "Use visualization to reduce anxiety",
+  "visualizeTipStep1": "Find a quiet place to sit",
+  "visualizeTipStep2": "Close your eyes and breathe deeply",
+  "visualizeTipStep3": "Imagine a place that makes you feel at peace (beach, forest)",
+  "visualizeTipStep4": "Visualize the details: sounds, smells, sensations",
+  "visualizeTipStep5": "Allow that feeling of peace to envelop you",
+
+  "recipeTipTitle": "Try a new healthy recipe",
+  "recipeTipDescription": "Therapeutic cooking to stimulate creativity",
+  "recipeTipStep1": "Choose nutritious ingredients",
+  "recipeTipStep2": "Focus on the process, not just the result",
+  "recipeTipStep3": "Experiment with combinations",
+  "recipeTipStep4": "Enjoy the food mindfully",
+
+  "relaxationCategory": "Relaxation",
+  "exerciseCategory": "Exercise",
+  "mindfulnessCategory": "Mindfulness",
+  "socialCategory": "Social",
+  "restCategory": "Rest",
+  "leisureCategory": "Leisure",
+  "healthCategory": "Health",
+  "emotionalCategory": "Emotional",
+  "productivityCategory": "Productivity",
+  "creativityCategory": "Creativity",
+
+  "duration5to10": "5-10 min",
+  "duration15to30": "15-30 min",
+  "duration5": "5 min",
+  "duration10": "10 min",
+  "duration10to30": "10-30 min",
+  "duration10to15": "10-15 min",
+  "duration30to60": "30-60 min",
+  "duration2": "2 min",
+  "duration3": "3 min",
+  "durationVariable": "Variable",
+  "duration1hour": "1 hour",
+
+  "emotionsActivitiesAndMore": "Emotions, activities and more",
+  "justMoodState": "Just mood state",
+  "yourDaySoFar": "Your day so far",
+  "energyWithValue": "Energy: {value}/5",
+  "@energyWithValue": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "emotionsWithList": "Emotions: {emotions}",
+  "@emotionsWithList": {
+    "placeholders": {
+      "emotions": {
+        "type": "String"
+      }
+    }
+  },
+  "activitiesWithList": "Activities: {activities}",
+  "@activitiesWithList": {
+    "placeholders": {
+      "activities": {
+        "type": "String"
+      }
+    }
+  },
+  "todayAt": "Today {time}",
+  "@todayAt": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "yesterdayAt": "Yesterday {time}",
+  "@yesterdayAt": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "moodStateRegisteredSuccessfully": "Mood state registered successfully!",
+  "generalMoodState": "General Mood State",
+  "selectEmotionsAndIntensity": "Select the emotions you feel and their intensity (1-5)",
+  "energyAndStress": "Energy and Stress",
+  "energyLevelWithValue": "Energy Level: {level}/5",
+  "@energyLevelWithValue": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "stressLevelWithValue": "Stress Level: {level}/5",
+  "@stressLevelWithValue": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "selectActivitiesYouDid": "Select the activities you did",
+  "holdToPressToAdjustIntensity": "Hold to adjust intensity",
+  "scoreWithValue": "Score: {score}/10",
+  "@scoreWithValue": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "additionalNotesTitle": "Additional Notes",
+  "intensityWithValue": "Intensity: {intensity}/5",
+  "@intensityWithValue": {
+    "placeholders": {
+      "intensity": {
+        "type": "int"
+      }
+    }
+  },
+  "saveMoodState": "Save Mood State",
+  "quickCheckinTitle": "Quick Check-in",
+  "fastCheckTitle": "Fast",
+  "errorSavingWithMessage": "Error saving: {error}",
+  "@errorSavingWithMessage": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "aboutQuickCheckinTitle": "About Quick Check-in",
+  "quickCheckinDetails": "• Record your mood in seconds\\n • Perfect for multiple daily entries\\n• Use quick buttons or customize your selection\\n• You can add more details later if you want",
+  "customSelectionTitle": "Custom Selection",
+  "saveMoodStateTitle": "Save Mood State"
 }

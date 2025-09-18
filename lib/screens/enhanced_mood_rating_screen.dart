@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mood_tracker/models/enhanced_mood_entry.dart';
 import 'package:mood_tracker/services/enhanced_mood_storage.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class EnhancedMoodRatingScreen extends StatefulWidget {
   const EnhancedMoodRatingScreen({super.key});
@@ -54,8 +55,8 @@ class _EnhancedMoodRatingScreenState extends State<EnhancedMoodRatingScreen> {
 
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('¡Estado de ánimo registrado exitosamente!'),
+          SnackBar(
+            content: Text(AppLocalizations.of(context)!.moodStateRegisteredSuccessfully),
             backgroundColor: Colors.green,
           ),
         );
@@ -65,7 +66,7 @@ class _EnhancedMoodRatingScreenState extends State<EnhancedMoodRatingScreen> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Error al guardar: $e'),
+            content: Text(AppLocalizations.of(context)!.errorSaving(e.toString())),
             backgroundColor: Colors.red,
           ),
         );
@@ -91,7 +92,7 @@ class _EnhancedMoodRatingScreenState extends State<EnhancedMoodRatingScreen> {
                 const Icon(Icons.mood, color: Colors.blue),
                 const SizedBox(width: 8),
                 Text(
-                  'Estado de Ánimo General',
+                  AppLocalizations.of(context)!.generalMoodState,
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
               ],
@@ -119,7 +120,7 @@ class _EnhancedMoodRatingScreenState extends State<EnhancedMoodRatingScreen> {
             ),
             Center(
               child: Text(
-                'Puntuación: $_overallMood/10',
+                AppLocalizations.of(context)!.scoreWithValue(_overallMood),
                 style: Theme.of(context).textTheme.titleMedium,
               ),
             ),
@@ -141,14 +142,14 @@ class _EnhancedMoodRatingScreenState extends State<EnhancedMoodRatingScreen> {
                 const Icon(Icons.favorite, color: Colors.red),
                 const SizedBox(width: 8),
                 Text(
-                  'Emociones Específicas',
+                  AppLocalizations.of(context)!.specificEmotions,
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
               ],
             ),
             const SizedBox(height: 8),
             Text(
-              'Selecciona las emociones que sientes y su intensidad (1-5)',
+              AppLocalizations.of(context)!.selectEmotionsAndIntensity,
               style: Theme.of(context).textTheme.bodySmall,
             ),
             const SizedBox(height: 16),

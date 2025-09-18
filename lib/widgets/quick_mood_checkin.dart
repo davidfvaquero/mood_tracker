@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mood_tracker/services/enhanced_mood_storage.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class QuickMoodCheckInWidget extends StatefulWidget {
   final VoidCallback? onMoodSaved;
@@ -26,6 +27,22 @@ class _QuickMoodCheckInWidgetState extends State<QuickMoodCheckInWidget> {
     'Terrible', 'Muy mal', 'Mal', 'Neutro', 'Bien', 
     'Muy bien', 'Genial', 'Excelente', 'Increíble', 'Eufórico'
   ];
+
+  List<String> _getMoodLabels(BuildContext context) {
+    final localizations = AppLocalizations.of(context)!;
+    return [
+      localizations.terrible,
+      localizations.veryBad,
+      localizations.bad,
+      localizations.neutral,
+      localizations.good,
+      localizations.veryGood,
+      localizations.great,
+      localizations.excellent,
+      localizations.amazing,
+      localizations.euphoric,
+    ];
+  }
 
   Future<void> _saveQuickMood() async {
     if (_isSubmitting) return;
@@ -60,7 +77,7 @@ class _QuickMoodCheckInWidgetState extends State<QuickMoodCheckInWidget> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Error al guardar: $e'),
+            content: Text(AppLocalizations.of(context)!.errorSaving(e.toString())),
             backgroundColor: Colors.red,
           ),
         );
@@ -79,17 +96,17 @@ class _QuickMoodCheckInWidgetState extends State<QuickMoodCheckInWidget> {
       context: context,
       builder: (context) => StatefulBuilder(
         builder: (context, setDialogState) => AlertDialog(
-          title: const Row(
+          title: Row(
             children: [
-              Icon(Icons.speed, color: Colors.blue),
-              SizedBox(width: 8),
-              Text('Check-in Rápido'),
+              const Icon(Icons.speed, color: Colors.blue),
+              const SizedBox(width: 8),
+              Text(AppLocalizations.of(context)!.quickCheckin),
             ],
           ),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Text('¿Cómo te sientes ahora?'),
+              Text(AppLocalizations.of(context)!.howDoYouFeelNow),
               const SizedBox(height: 20),
               
               // Mood emoji display
@@ -145,14 +162,14 @@ class _QuickMoodCheckInWidgetState extends State<QuickMoodCheckInWidget> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    '😢 Muy mal',
+                    '😢 ${AppLocalizations.of(context)!.veryBad}',
                     style: TextStyle(
                       fontSize: 12,
                       color: Colors.grey[600],
                     ),
                   ),
                   Text(
-                    'Muy bien 🤩',
+                    '${AppLocalizations.of(context)!.veryGood} 🤩',
                     style: TextStyle(
                       fontSize: 12,
                       color: Colors.grey[600],
@@ -165,7 +182,7 @@ class _QuickMoodCheckInWidgetState extends State<QuickMoodCheckInWidget> {
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
-              child: const Text('Cancelar'),
+              child: Text(AppLocalizations.of(context)!.cancel),
             ),
             ElevatedButton(
               onPressed: _isSubmitting ? null : () async {
@@ -180,7 +197,7 @@ class _QuickMoodCheckInWidgetState extends State<QuickMoodCheckInWidget> {
                       height: 16,
                       child: CircularProgressIndicator(strokeWidth: 2),
                     )
-                  : const Text('Guardar'),
+                  : Text(AppLocalizations.of(context)!.save),
             ),
           ],
         ),
@@ -205,7 +222,7 @@ class _QuickMoodCheckInWidgetState extends State<QuickMoodCheckInWidget> {
                 ),
                 const SizedBox(width: 8),
                 Text(
-                  'Check-in Rápido',
+                  AppLocalizations.of(context)!.quickCheckin,
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
               ],
@@ -240,7 +257,7 @@ class _QuickMoodCheckInWidgetState extends State<QuickMoodCheckInWidget> {
               child: OutlinedButton.icon(
                 onPressed: _showQuickCheckInDialog,
                 icon: const Icon(Icons.tune),
-                label: const Text('Selección Personalizada'),
+                label: Text(AppLocalizations.of(context)!.customSelection),
               ),
             ),
           ],
@@ -300,7 +317,7 @@ class QuickMoodCheckInScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Check-in Rápido'),
+        title: Text(AppLocalizations.of(context)!.quickCheckin),
         elevation: 0,
       ),
       body: const Padding(
@@ -308,9 +325,9 @@ class QuickMoodCheckInScreen extends StatelessWidget {
         child: Column(
           children: [
             QuickMoodCheckInWidget(),
-            SizedBox(height: 24),
+            const SizedBox(height: 24),
             Card(
-              child: Padding(
+              child: const Padding(
                 padding: EdgeInsets.all(16.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -320,7 +337,7 @@ class QuickMoodCheckInScreen extends StatelessWidget {
                         Icon(Icons.info_outline, color: Colors.blue),
                         SizedBox(width: 8),
                         Text(
-                          'Sobre el Check-in Rápido',
+                          'About Quick Check-in',
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
@@ -330,10 +347,10 @@ class QuickMoodCheckInScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 12),
                     Text(
-                      '• Registra tu estado de ánimo en segundos\n'
-                      '• Perfecto para múltiples entradas diarias\n'
-                      '• Usa los botones rápidos o personaliza tu selección\n'
-                      '• Puedes agregar más detalles después si quieres',
+                      '• Record your mood in seconds\n'
+                      '• Perfect for multiple daily entries\n'
+                      '• Use quick buttons or customize your selection\n'
+                      '• You can add more details later if you want',
                       style: TextStyle(height: 1.5),
                     ),
                   ],
