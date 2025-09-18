@@ -55,9 +55,6 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
         _selectedTime.minute,
       );
 
-      // Debug pending notifications
-      await _notificationService.debugPendingNotifications();
-
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -110,9 +107,6 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
           _selectedTime.hour,
           _selectedTime.minute,
         );
-
-        // Debug pending notifications
-        await _notificationService.debugPendingNotifications();
 
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
