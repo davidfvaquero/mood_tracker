@@ -16,12 +16,24 @@ class NotificationService {
     // Initialize timezone data
     tz.initializeTimeZones();
     
-    // Set local timezone
+    // Get and set device timezone
     try {
-      tz.setLocalLocation(tz.getLocation('Europe/Madrid')); // Adjust for Spain
+      final DateTime now = DateTime.now();
+      final Duration offset = now.timeZoneOffset;
+      
+      // Try to find a timezone that matches the current offset
+      final String timeZoneName = _getTimezoneFromOffset(offset);
+      tz.setLocalLocation(tz.getLocation(timeZoneName));
+      
+      if (kDebugMode) {
+        print('Set timezone to: $timeZoneName (offset: ${offset.inHours}h)');
+      }
     } catch (e) {
-      // Fallback to UTC if timezone not found
-      tz.setLocalLocation(tz.UTC);
+      // Fallback to local timezone based on offset
+      tz.setLocalLocation(tz.local);
+      if (kDebugMode) {
+        print('Using local timezone, error: $e');
+      }
     }
 
     // Android initialization settings
@@ -173,5 +185,31 @@ class NotificationService {
   Future<bool> areNotificationsEnabled() async {
     final prefs = await SharedPreferences.getInstance();
     return prefs.getBool('notifications_enabled') ?? false;
+  }
+
+  String _getTimezoneFromOffset(Duration offset) {
+    final int hours = offset.inHours;
+    
+    // Common timezone mappings based on UTC offset
+    switch (hours) {
+      case 0: return 'UTC';
+      case 1: return 'Europe/London';
+      case 2: return 'Europe/Berlin';
+      case -5: return 'America/New_York';
+      case -6: return 'America/Chicago';
+      case -7: return 'America/Denver';
+      case -8: return 'America/Los_Angeles';
+      case 9: return 'Asia/Tokyo';
+      case 8: return 'Asia/Shanghai';
+      case 5: return 'Asia/Karachi';
+      case 3: return 'Europe/Moscow';
+      default: 
+        // For other offsets, try to use a generic UTC offset
+        if (hours > 0) {
+          return 'Etc/GMT-$hours';
+        } else {
+          return 'Etc/GMT+${-hours}';
+        }
+    }
   }
 }

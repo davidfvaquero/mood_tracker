@@ -218,7 +218,6 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
                     subtitle: Text(_selectedTime.format(context)),
                     trailing: const Icon(Icons.chevron_right),
                     onTap: _selectTime,
-                    enabled: true,
                   ),
                 ],
               ),
