@@ -234,7 +234,7 @@ class _EnhancedHomeScreenState extends State<EnhancedHomeScreen> {
                     borderRadius: BorderRadius.circular(16),
                   ),
                   child: Text(
-                    'Estado: ${_todayEntry!.overallMood}/10',
+                    '${AppLocalizations.of(context)!.status} ${_todayEntry!.overallMood}/10',
                     style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
@@ -299,7 +299,7 @@ class _EnhancedHomeScreenState extends State<EnhancedHomeScreen> {
                 ),
                 const SizedBox(width: 8),
                 Text(
-                  'Entradas Recientes',
+                  AppLocalizations.of(context)!.recentEntries,
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
               ],
@@ -356,9 +356,9 @@ class _EnhancedHomeScreenState extends State<EnhancedHomeScreen> {
                         color: Colors.green,
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      child: const Text(
-                        'Rápido',
-                        style: TextStyle(
+                      child: Text(
+                        AppLocalizations.of(context)!.quick,
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 10,
                         ),

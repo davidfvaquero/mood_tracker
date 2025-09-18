@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../models/tip.dart';
 
 class TipDetailScreen extends StatelessWidget {
@@ -27,7 +28,7 @@ class TipDetailScreen extends StatelessWidget {
               ),
               const SizedBox(height: 25),
               Text(
-                'Pasos a seguir:',
+                AppLocalizations.of(context)!.stepsToFollow,
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.w600,
                     ),

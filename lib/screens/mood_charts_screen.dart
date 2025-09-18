@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../models/mood_entry.dart';
 import '../services/mood_storage.dart';
 import '../widgets/mood_chart.dart';
@@ -32,7 +33,7 @@ class _MoodChartsScreenState extends State<MoodChartsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Estadísticas')),
+      appBar: AppBar(title: Text(AppLocalizations.of(context)!.statistics)),
       body: FutureBuilder<List<MoodEntry>>(
         future: _futureData,
         builder: (context, snapshot) {
@@ -56,9 +57,9 @@ class _MoodChartsScreenState extends State<MoodChartsScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Card(
                     child: ListTile(
-                      title: const Text('Promedio de estado de ánimo'),
+                      title: Text(AppLocalizations.of(context)!.averageMoodTitle),
                       subtitle: Text(
-                        'En los últimos ${_selectedTimeFrame == 'Semanal' ? 7 : 30} días',
+                        AppLocalizations.of(context)!.inTheLast(_selectedTimeFrame == 'Semanal' ? 7 : 30),
                       ),
                       trailing: CircleAvatar(
                         backgroundColor:

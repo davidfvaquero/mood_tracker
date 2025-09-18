@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:mood_tracker/services/mood_storage.dart';
 
@@ -29,10 +30,9 @@ class PrivacySecurityScreen extends StatelessWidget {
                         context: context,
                         builder:
                             (context) => AlertDialog(
-                              title: const Text('Confirmar borrado'),
-                              content: const Text(
-                                '¿Estás seguro de que quieres eliminar TODOS los datos? '
-                                'Esta acción no se puede deshacer.',
+                              title: Text(AppLocalizations.of(context)!.confirmDeletion),
+                              content: Text(
+                                AppLocalizations.of(context)!.areYouSureDeleteAll,
                               ),
                               actions: [
                                 TextButton(

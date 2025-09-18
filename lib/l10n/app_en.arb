@@ -563,5 +563,61 @@
   "aboutQuickCheckinTitle": "About Quick Check-in",
   "quickCheckinDetails": "• Record your mood in seconds\\n • Perfect for multiple daily entries\\n• Use quick buttons or customize your selection\\n• You can add more details later if you want",
   "customSelectionTitle": "Custom Selection",
-  "saveMoodStateTitle": "Save Mood State"
+  "saveMoodStateTitle": "Save Mood State",
+  
+  "stepsToFollow": "Steps to follow:",
+  "recordYourMoodQuickly": "Record your mood quickly",
+  "recentEntries": "Recent Entries",
+  "status": "Status:",
+  "moodSaved": "Mood saved!",
+  "specificMoodReminder": "Anything specific you want to remember about your mood?",
+  "recordMoodTitle": "Record Mood",
+  "saveMoodTitle": "Save Mood",
+  "moodTimeFrame": "Mood - {timeFrame}",
+  "@moodTimeFrame": {
+    "placeholders": {
+      "timeFrame": {
+        "type": "String"
+      }
+    }
+  },
+  "timeToRecordMood": "Time to record your daily mood",
+  "saveMood": "Save Mood",
+  "quick": "Quick",
+  "holdToAdjustIntensity": "Hold to adjust intensity",
+  "energyAndStress": "Energy and Stress",
+  "energyLevel": "Energy Level: {level}/5",
+  "@energyLevel": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "stressLevel": "Stress Level: {level}/5",
+  "@stressLevel": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "noNotesForThisDay": "No notes for this day",
+  "addComment": "Want to add any comment?",
+  "statistics": "Statistics",
+  "averageMoodTitle": "Average mood",
+  "inTheLast": "In the last {days} days",
+  "@inTheLast": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "areYouSureDeleteAll": "Are you sure you want to delete ALL data? This action cannot be undone.",
+  "optionalNotes": "Optional notes",
+  "confirmDeletion": "Confirm deletion",
+  "activities": "Activities",
+  "selectActivitiesYouDid": "Select the activities you did",
+  "additionalNotes": "Additional Notes"
 }

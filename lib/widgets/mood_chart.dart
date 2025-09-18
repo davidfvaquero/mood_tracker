@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:fl_chart/fl_chart.dart';
 import '../models/mood_entry.dart';
 
@@ -42,7 +43,7 @@ class _MoodChartState extends State<MoodChart> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Estado de ánimo - ${widget.timeFrame}',
+              AppLocalizations.of(context)!.moodTimeFrame(widget.timeFrame),
               style: Theme.of(context).textTheme.titleLarge,
             ),
             const SizedBox(height: 20),
@@ -218,7 +219,7 @@ class _MoodChartState extends State<MoodChart> {
               Text(
                 _selectedEntry!.notes?.isNotEmpty == true
                     ? _selectedEntry!.notes!
-                    : 'No hay notas para este día',
+                    : AppLocalizations.of(context)!.noNotesForThisDay,
                 style: TextStyle(color: Colors.grey[700], fontSize: 14),
               ),
             ],

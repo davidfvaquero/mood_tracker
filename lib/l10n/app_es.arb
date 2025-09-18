@@ -563,5 +563,61 @@
   "aboutQuickCheckinTitle": "Sobre el Check-in Rápido",
   "quickCheckinDetails": "• Registra tu estado de ánimo en segundos\\n• Perfecto para múltiples entradas diarias\\n• Usa los botones rápidos o personaliza tu selección\\n• Puedes agregar más detalles después si quieres",
   "customSelectionTitle": "Selección Personalizada",
-  "saveMoodStateTitle": "Guardar Estado de Ánimo"
+  "saveMoodStateTitle": "Guardar Estado de Ánimo",
+  
+  "stepsToFollow": "Pasos a seguir:",
+  "recordYourMoodQuickly": "Registra tu estado de ánimo de forma rápida",
+  "recentEntries": "Entradas recientes",
+  "status": "Estado:",
+  "moodSaved": "¡Estado de ánimo guardado!",
+  "specificMoodReminder": "¿Algo específico que quieras recordar sobre tu estado de ánimo?",
+  "recordMoodTitle": "Registrar Estado de Ánimo",
+  "saveMoodTitle": "Guardar Estado de Ánimo",
+  "moodTimeFrame": "Estado de ánimo - {timeFrame}",
+  "@moodTimeFrame": {
+    "placeholders": {
+      "timeFrame": {
+        "type": "String"
+      }
+    }
+  },
+  "timeToRecordMood": "Es hora de registrar tu estado de ánimo diario",
+  "saveMood": "Guardar Estado",
+  "quick": "Rápido",
+  "holdToAdjustIntensity": "Mantén presionado para ajustar intensidad",
+  "energyAndStress": "Energía y Estrés",
+  "energyLevel": "Nivel de Energía: {level}/5",
+  "@energyLevel": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "stressLevel": "Nivel de Estrés: {level}/5",
+  "@stressLevel": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "noNotesForThisDay": "No hay notas para este día",
+  "addComment": "¿Quieres añadir algún comentario?",
+  "statistics": "Estadísticas",
+  "averageMoodTitle": "Promedio de estado de ánimo",
+  "inTheLast": "En los últimos {days} días",
+  "@inTheLast": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "areYouSureDeleteAll": "¿Estás seguro de que quieres eliminar TODOS los datos? Esta acción no se puede deshacer.",
+  "optionalNotes": "Notas opcionales",
+  "confirmDeletion": "Confirmar borrado",
+  "activities": "Actividades",
+  "selectActivitiesYouDid": "Selecciona las actividades que realizaste",
+  "additionalNotes": "Notas Adicionales"
 }

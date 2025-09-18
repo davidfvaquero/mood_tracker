@@ -226,7 +226,7 @@ class _EnhancedMoodRatingScreenState extends State<EnhancedMoodRatingScreen> {
             if (_selectedEmotions.isNotEmpty) ...[
               const SizedBox(height: 8),
               Text(
-                'Mantén presionado para ajustar intensidad',
+                AppLocalizations.of(context)!.holdToAdjustIntensity,
                 style: Theme.of(context).textTheme.bodySmall?.copyWith(
                   fontStyle: FontStyle.italic,
                 ),
@@ -250,7 +250,7 @@ class _EnhancedMoodRatingScreenState extends State<EnhancedMoodRatingScreen> {
                 const Icon(Icons.battery_charging_full, color: Colors.orange),
                 const SizedBox(width: 8),
                 Text(
-                  'Energía y Estrés',
+                  AppLocalizations.of(context)!.energyAndStress,
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
               ],
@@ -258,7 +258,7 @@ class _EnhancedMoodRatingScreenState extends State<EnhancedMoodRatingScreen> {
             const SizedBox(height: 16),
             
             // Energy Level
-            Text('Nivel de Energía: $_energyLevel/5'),
+            Text(AppLocalizations.of(context)!.energyLevel(_energyLevel)),
             Row(
               children: [
                 const Text('😴'),
@@ -282,7 +282,7 @@ class _EnhancedMoodRatingScreenState extends State<EnhancedMoodRatingScreen> {
             const SizedBox(height: 16),
             
             // Stress Level
-            Text('Nivel de Estrés: $_stressLevel/5'),
+            Text(AppLocalizations.of(context)!.stressLevel(_stressLevel)),
             Row(
               children: [
                 const Text('😌'),
@@ -320,14 +320,14 @@ class _EnhancedMoodRatingScreenState extends State<EnhancedMoodRatingScreen> {
                 const Icon(Icons.local_activity, color: Colors.green),
                 const SizedBox(width: 8),
                 Text(
-                  'Actividades',
+                  AppLocalizations.of(context)!.activities,
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
               ],
             ),
             const SizedBox(height: 8),
             Text(
-              'Selecciona las actividades que realizaste',
+              AppLocalizations.of(context)!.selectActivitiesYouDid,
               style: Theme.of(context).textTheme.bodySmall,
             ),
             const SizedBox(height: 16),
@@ -395,7 +395,7 @@ class _EnhancedMoodRatingScreenState extends State<EnhancedMoodRatingScreen> {
                 const Icon(Icons.note_add, color: Colors.purple),
                 const SizedBox(width: 8),
                 Text(
-                  'Notas Adicionales',
+                  AppLocalizations.of(context)!.additionalNotes,
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
               ],
@@ -404,9 +404,9 @@ class _EnhancedMoodRatingScreenState extends State<EnhancedMoodRatingScreen> {
             TextField(
               controller: _notesController,
               maxLines: 3,
-              decoration: const InputDecoration(
-                hintText: '¿Algo específico que quieras recordar sobre tu estado de ánimo?',
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                hintText: AppLocalizations.of(context)!.specificMoodReminder,
+                border: const OutlineInputBorder(),
               ),
             ),
           ],
@@ -474,7 +474,7 @@ class _EnhancedMoodRatingScreenState extends State<EnhancedMoodRatingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Registrar Estado de Ánimo'),
+        title: Text(AppLocalizations.of(context)!.recordMoodTitle),
         elevation: 0,
       ),
       body: SingleChildScrollView(
@@ -503,9 +503,9 @@ class _EnhancedMoodRatingScreenState extends State<EnhancedMoodRatingScreen> {
                 ),
                 child: _isSubmitting
                     ? const CircularProgressIndicator(color: Colors.white)
-                    : const Text(
-                        'Guardar Estado de Ánimo',
-                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    : Text(
+                        AppLocalizations.of(context)!.saveMoodTitle,
+                        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                       ),
               ),
             ),

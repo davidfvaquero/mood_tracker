@@ -110,10 +110,10 @@ class _MoodRatingScreenState extends State<MoodRatingScreen> {
               const SizedBox(height: 30),
               TextField(
                 controller: _notesController,
-                decoration: const InputDecoration(
-                  labelText: 'Notas opcionales',
-                  hintText: '¿Quieres añadir algún comentario?',
-                  border: OutlineInputBorder(),
+                decoration: InputDecoration(
+                  labelText: AppLocalizations.of(context)!.optionalNotes,
+                  hintText: AppLocalizations.of(context)!.addComment,
+                  border: const OutlineInputBorder(),
                 ),
                 maxLines: 3,
                 minLines: 1,
@@ -122,7 +122,7 @@ class _MoodRatingScreenState extends State<MoodRatingScreen> {
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: _saveMood,
-                child: const Text('Guardar Estado'),
+                child: Text(AppLocalizations.of(context)!.saveMood),
               ),
             ],
           ),

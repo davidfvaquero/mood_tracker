@@ -23,11 +23,6 @@ class _QuickMoodCheckInWidgetState extends State<QuickMoodCheckInWidget> {
     '😢', '😟', '😕', '😐', '🙂', '😊', '😄', '😃', '😁', '🤩'
   ];
 
-  final List<String> _moodLabels = [
-    'Terrible', 'Muy mal', 'Mal', 'Neutro', 'Bien', 
-    'Muy bien', 'Genial', 'Excelente', 'Increíble', 'Eufórico'
-  ];
-
   List<String> _getMoodLabels(BuildContext context) {
     final localizations = AppLocalizations.of(context)!;
     return [
@@ -63,7 +58,7 @@ class _QuickMoodCheckInWidgetState extends State<QuickMoodCheckInWidget> {
               children: [
                 Text(_moodEmojis[_selectedMood - 1]),
                 const SizedBox(width: 8),
-                const Text('¡Estado de ánimo guardado!'),
+                Text(AppLocalizations.of(context)!.moodSaved),
               ],
             ),
             backgroundColor: Colors.green,
@@ -124,7 +119,7 @@ class _QuickMoodCheckInWidgetState extends State<QuickMoodCheckInWidget> {
                     ),
                     const SizedBox(height: 8),
                     Text(
-                      _moodLabels[_selectedMood - 1],
+                      _getMoodLabels(context)[_selectedMood - 1],
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
@@ -229,7 +224,7 @@ class _QuickMoodCheckInWidgetState extends State<QuickMoodCheckInWidget> {
             ),
             const SizedBox(height: 8),
             Text(
-              'Registra tu estado de ánimo de forma rápida',
+              AppLocalizations.of(context)!.recordYourMoodQuickly,
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                 color: Colors.grey[600],
               ),
@@ -244,7 +239,7 @@ class _QuickMoodCheckInWidgetState extends State<QuickMoodCheckInWidget> {
                   _buildQuickMoodButton(
                     mood: i * 2, // 2, 4, 6, 8, 10
                     emoji: _moodEmojis[i * 2 - 1],
-                    label: _moodLabels[i * 2 - 1],
+                    label: _getMoodLabels(context)[i * 2 - 1],
                   ),
               ],
             ),
