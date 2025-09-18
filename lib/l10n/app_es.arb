@@ -1,0 +1,296 @@
+{
+  "@@locale": "es",
+  "appTitle": "Seguimiento del Estado de Ánimo",
+  "goodMorning": "Buenos días",
+  "goodAfternoon": "Buenas tardes",
+  "goodEvening": "Buenas noches",
+  "howAreYouToday": "¿Cómo te sientes hoy? Registra tu primer estado de ánimo.",
+  "howAreYouNow": "¿Cómo te sientes ahora? Ya registraste tu estado de ánimo hoy.",
+  "overallMood": "Estado de Ánimo General",
+  "specificEmotions": "Emociones Específicas",
+  "emotionsDescription": "Selecciona las emociones que sientes y su intensidad (1-5)",
+  "energyAndStress": "Energía y Estrés",
+  "energyLevel": "Nivel de Energía: {level}/5",
+  "@energyLevel": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "stressLevel": "Nivel de Estrés: {level}/5",
+  "@stressLevel": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "activities": "Actividades",
+  "activitiesDescription": "Selecciona las actividades que realizaste",
+  "additionalNotes": "Notas Adicionales",
+  "notesPlaceholder": "¿Algo específico que quieras recordar sobre tu estado de ánimo?",
+  "saveMoodEntry": "Guardar Estado de Ánimo",
+  "moodSavedSuccessfully": "¡Estado de ánimo registrado exitosamente!",
+  "quickCheckin": "Check-in Rápido",
+  "quickCheckinDescription": "Registra tu estado de ánimo de forma rápida",
+  "detailedEntry": "Registro Detallado",
+  "detailedEntryDescription": "Emociones, actividades y más",
+  "cancel": "Cancelar",
+  "save": "Guardar",
+  "today": "Hoy",
+  "yesterday": "Ayer",
+  "recentEntries": "Entradas Recientes",
+  "yourDayToday": "Tu día hasta ahora",
+  "moodScore": "Estado: {score}/10",
+  "@moodScore": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "energyScore": "Energía: {score}/5",
+  "@energyScore": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "emotions": "Emociones: {emotions}",
+  "@emotions": {
+    "placeholders": {
+      "emotions": {
+        "type": "String"
+      }
+    }
+  },
+  "activitiesLabel": "Actividades: {activities}",
+  "@activitiesLabel": {
+    "placeholders": {
+      "activities": {
+        "type": "String"
+      }
+    }
+  },
+  "quickLabel": "Rápido",
+  "aboutQuickCheckin": "Sobre el Check-in Rápido",
+  "quickCheckinInfo": "• Registra tu estado de ánimo en segundos\\n• Perfecto para múltiples entradas diarias\\n• Usa los botones rápidos o personaliza tu selección\\n• Puedes agregar más detalles después si quieres",
+  "howDoYouFeelNow": "¿Cómo te sientes ahora?",
+  "veryBad": "Muy mal",
+  "bad": "Mal",
+  "neutral": "Neutro",
+  "good": "Bien",
+  "veryGood": "Muy bien",
+  "great": "Genial",
+  "excellent": "Excelente",
+  "amazing": "Increíble",
+  "euphoric": "Eufórico",
+  "terrible": "Terrible",
+  "customSelection": "Selección Personalizada",
+  "moodSaved": "¡Estado de ánimo guardado!",
+  "errorSaving": "Error al guardar: {error}",
+  "@errorSaving": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "settings": "Configuración",
+  "darkMode": "Modo Oscuro",
+  "darkModeDescription": "Cambiar entre tema claro y oscuro",
+  "notifications": "Notificaciones",
+  "notificationsDescription": "Configura recordatorios diarios",
+  "privacySecurity": "Privacidad y Seguridad",
+  "privacySecurityDescription": "Configuración de protección de datos y privacidad",
+  "language": "Idioma",
+  "languageDescription": "Cambiar idioma de la aplicación",
+  "moodNavigation": "Estado de ánimo",
+  "chartsNavigation": "Gráficos",
+  "tipsNavigation": "Consejos",
+  "settingsNavigation": "Configuración",
+  "recordMoodEntry": "Registrar Estado de Ánimo",
+  "pressAndHoldToAdjust": "Mantén presionado para ajustar intensidad",
+  "intensityLabel": "Intensidad: {intensity}/5",
+  "@intensityLabel": {
+    "placeholders": {
+      "intensity": {
+        "type": "int"
+      }
+    }
+  },
+  "score": "Puntuación: {score}/10",
+  "@score": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "selectLanguage": "Seleccionar Idioma",
+  "english": "Inglés",
+  "spanish": "Español",
+  "languageChanged": "Idioma cambiado a {language}",
+  "@languageChanged": {
+    "placeholders": {
+      "language": {
+        "type": "String"
+      }
+    }
+  },
+  "systemDefault": "Predeterminado del Sistema",
+  
+  "moodSuccessSaved": "¡Estado de ánimo registrado exitosamente!",
+  "errorSavingMood": "Error al guardar",
+  "energyLevelLabel": "Nivel de Energía",
+  "stressLevelLabel": "Nivel de Estrés",
+  "triggers": "Disparadores",
+  "addComment": "Agregar comentario...",
+  "selectEmotion": "Selecciona una emoción",
+  "selectActivity": "Selecciona una actividad",
+  "selectTrigger": "Selecciona un disparador",
+  "additionalEmotions": "Emociones adicionales",
+  "commonActivities": "Actividades comunes",
+  "emotionalTriggers": "Disparadores emocionales",
+  "optional": "Opcional",
+  
+  "work": "Trabajo",
+  "exercise": "Ejercicio",
+  "socializing": "Socializar",
+  "family": "Familia",
+  "rest": "Descanso",
+  "hobbies": "Pasatiempos",
+  "study": "Estudiar",
+  "travel": "Viajar",
+  "meditation": "Meditación",
+  "reading": "Lectura",
+  "music": "Música",
+  "nature": "Naturaleza",
+  
+  "happy": "Feliz",
+  "sad": "Triste",
+  "anxious": "Ansioso",
+  "calm": "Calmado",
+  "excited": "Emocionado",
+  "angry": "Enojado",
+  "grateful": "Agradecido",
+  "frustrated": "Frustrado",
+  "motivated": "Motivado",
+  "tired": "Cansado",
+  "confident": "Confiado",
+  "lonely": "Solo",
+  
+  "stress": "Estrés",
+  "workPressure": "Presión laboral",
+  "relationship": "Relaciones",
+  "health": "Salud",
+  "money": "Dinero",
+  "change": "Cambio",
+  "uncertainty": "Incertidumbre",
+  "socialMedia": "Redes sociales",
+  "sleep": "Sueño",
+  "weather": "Clima",
+  
+  "low": "Bajo",
+  "medium": "Medio",
+  "high": "Alto",
+  "veryLow": "Muy Bajo",
+  "veryHigh": "Muy Alto",
+  
+  "notificationSettings": "Configuración de Notificaciones",
+  "enableNotifications": "Habilitar notificaciones",
+  "notificationTime": "Hora de notificación",
+  "selectTime": "Seleccionar hora",
+  "testNotification": "Probar notificación",
+  "notificationTestSent": "¡Notificación de prueba enviada!",
+  "errorSendingTest": "Error enviando notificación de prueba",
+  "saveSettings": "Guardar Configuración",
+  "settingsSaved": "¡Configuración guardada exitosamente!",
+  "errorSavingSettings": "Error guardando configuración",
+  
+  "moodDistribution": "Distribución del Estado de Ánimo",
+  "weeklyMoodTrend": "Tendencia Semanal del Estado de Ánimo",
+  "noDataAvailable": "No hay datos disponibles",
+  "lastWeek": "Semana pasada",
+  "thisWeek": "Esta semana",
+  "average": "Promedio",
+  "entries": "entradas",
+  
+  "selectDate": "Seleccionar fecha",
+  "daysAgo": "días atrás",
+  "from": "desde",
+  "to": "hasta",
+  "total": "Total",
+  "dailyAverage": "Promedio diario",
+  "periodSummary": "Resumen del período",
+  
+  "loading": "Cargando...",
+  "retry": "Reintentar",
+  "error": "Error",
+  "noEntriesFound": "No se encontraron entradas",
+  "addFirstEntry": "¡Agrega tu primera entrada de estado de ánimo!",
+  "tapToAdd": "Toca + para agregar",
+  
+  "howAreYouFeelingToday": "¿Cómo te sientes hoy?",
+  "timeForDailyMoodCheck": "Es hora de registrar tu estado de ánimo diario",
+  "dailyMoodReminder": "Recordatorio Diario de Estado de Ánimo",
+  "dailyRemindersToTrackMood": "Recordatorios diarios para registrar tu estado de ánimo",
+  
+  "dataProtection": "Protección de Datos",
+  "localStorageInfo": "Tus datos se almacenan localmente en tu dispositivo y no se comparten con terceros.",
+  "exportData": "Exportar Datos",
+  "deleteAllData": "Eliminar Todos los Datos",
+  "confirmDeleteTitle": "Confirmar Eliminación",
+  "confirmDeleteMessage": "¿Estás seguro de que quieres eliminar todos tus datos de estado de ánimo? Esta acción no se puede deshacer.",
+  "delete": "Eliminar",
+  
+  "moodHistory": "Historial del Estado de Ánimo",
+  "todayMood": "Estado de Ánimo de Hoy",
+  "weeklyAverage": "Promedio Semanal",
+  "monthlyTrend": "Tendencia Mensual",
+  "howAreYouFeeling": "¿Cómo te sientes?",
+  "notes": "Notas",
+  "addNotesPlaceholder": "Agrega notas sobre tu estado de ánimo...",
+  "saveMood": "Guardar Estado de Ánimo",
+  "home": "Inicio",
+  "tips": "Consejos",
+  "charts": "Gráficos",
+  
+  "notificationPermissionDenied": "Permisos de notificación denegados. Ve a configuración para habilitarlos.",
+  "dailyReminderScheduledFor": "Recordatorio diario programado para las {time}",
+  "@dailyReminderScheduledFor": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderUpdatedFor": "Recordatorio actualizado para las {time}",
+  "@reminderUpdatedFor": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  
+  "dailyReminderCanceled": "Recordatorio diario cancelado",
+  "dailyReminderTitle": "Recordatorio Diario",
+  "dailyReminderDescription": "Recibe un recordatorio diario para registrar tu estado de ánimo",
+  "enableReminders": "Habilitar recordatorios",
+  "remindersActive": "Los recordatorios están activos",
+  "remindersInactive": "Los recordatorios están desactivados",
+  "reminderSchedule": "Horario del Recordatorio",
+  "selectReminderTime": "Selecciona la hora en que quieres recibir el recordatorio",
+  "reminderTime": "Hora del recordatorio",
+  "information": "Información",
+  "reminderInfoText": "• Los recordatorios se enviarán todos los días a la hora seleccionada\\n• Puedes cambiar la hora en cualquier momento\\n• Si desactivas los recordatorios, se cancelarán todas las notificaciones programadas\\n• Asegúrate de tener los permisos de notificación habilitados en tu dispositivo",
+  
+  "existingEntry": "Entrada existente",
+  "overwriteEntry": "Ya tienes una puntuación para hoy. ¿Sobrescribir?",
+  "overwrite": "Sobrescribir",
+  "moodSavedCorrectly": "Estado guardado correctamente",
+  "myCurrentMood": "Mi Estado Actual"
+}

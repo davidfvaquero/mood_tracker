@@ -3,6 +3,7 @@ import 'package:mood_tracker/screens/enhanced_mood_rating_screen.dart';
 import 'package:mood_tracker/widgets/quick_mood_checkin.dart';
 import 'package:mood_tracker/services/enhanced_mood_storage.dart';
 import 'package:mood_tracker/models/enhanced_mood_entry.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class EnhancedHomeScreen extends StatefulWidget {
   const EnhancedHomeScreen({super.key});
@@ -43,19 +44,20 @@ class _EnhancedHomeScreenState extends State<EnhancedHomeScreen> {
   }
 
   Widget _buildWelcomeCard() {
+    final localizations = AppLocalizations.of(context)!;
     final now = DateTime.now();
     final hour = now.hour;
     String greeting;
     String icon;
 
     if (hour < 12) {
-      greeting = 'Buenos días';
+      greeting = localizations.goodMorning;
       icon = '🌅';
     } else if (hour < 18) {
-      greeting = 'Buenas tardes';
+      greeting = localizations.goodAfternoon;
       icon = '☀️';
     } else {
-      greeting = 'Buenas noches';
+      greeting = localizations.goodEvening;
       icon = '🌙';
     }
 
@@ -100,8 +102,8 @@ class _EnhancedHomeScreenState extends State<EnhancedHomeScreen> {
             const SizedBox(height: 8),
             Text(
               _todayEntry != null
-                  ? '¿Cómo te sientes ahora? Ya registraste tu estado de ánimo hoy.'
-                  : '¿Cómo te sientes hoy? Registra tu primer estado de ánimo.',
+                  ? localizations.howAreYouNow
+                  : localizations.howAreYouToday,
               style: const TextStyle(
                 fontSize: 16,
                 color: Colors.white70,

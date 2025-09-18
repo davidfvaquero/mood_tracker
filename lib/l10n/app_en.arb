@@ -1,0 +1,296 @@
+{
+  "@@locale": "en",
+  "appTitle": "Mood Tracker",
+  "goodMorning": "Good Morning",
+  "goodAfternoon": "Good Afternoon",
+  "goodEvening": "Good Evening",
+  "howAreYouToday": "How are you feeling today? Record your first mood.",
+  "howAreYouNow": "How are you feeling now? You already recorded your mood today.",
+  "overallMood": "Overall Mood",
+  "specificEmotions": "Specific Emotions",
+  "emotionsDescription": "Select the emotions you feel and their intensity (1-5)",
+  "energyAndStress": "Energy and Stress",
+  "energyLevel": "Energy Level: {level}/5",
+  "@energyLevel": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "stressLevel": "Stress Level: {level}/5",
+  "@stressLevel": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "activities": "Activities",
+  "activitiesDescription": "Select the activities you did",
+  "additionalNotes": "Additional Notes",
+  "notesPlaceholder": "Anything specific you want to remember about your mood?",
+  "saveMoodEntry": "Save Mood Entry",
+  "moodSavedSuccessfully": "Mood recorded successfully!",
+  "quickCheckin": "Quick Check-in",
+  "quickCheckinDescription": "Record your mood quickly",
+  "detailedEntry": "Detailed Entry",
+  "detailedEntryDescription": "Emotions, activities and more",
+  "cancel": "Cancel",
+  "save": "Save",
+  "today": "Today",
+  "yesterday": "Yesterday",
+  "recentEntries": "Recent Entries",
+  "yourDayToday": "Your day so far",
+  "moodScore": "Mood: {score}/10",
+  "@moodScore": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "energyScore": "Energy: {score}/5",
+  "@energyScore": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "emotions": "Emotions: {emotions}",
+  "@emotions": {
+    "placeholders": {
+      "emotions": {
+        "type": "String"
+      }
+    }
+  },
+  "activitiesLabel": "Activities: {activities}",
+  "@activitiesLabel": {
+    "placeholders": {
+      "activities": {
+        "type": "String"
+      }
+    }
+  },
+  "quickLabel": "Quick",
+  "aboutQuickCheckin": "About Quick Check-in",
+  "quickCheckinInfo": "• Record your mood in seconds\\n• Perfect for multiple daily entries\\n• Use quick buttons or customize your selection\\n• You can add more details later if you want",
+  "howDoYouFeelNow": "How do you feel now?",
+  "veryBad": "Very Bad",
+  "bad": "Bad",
+  "neutral": "Neutral",
+  "good": "Good",
+  "veryGood": "Very Good",
+  "great": "Great",
+  "excellent": "Excellent",
+  "amazing": "Amazing",
+  "euphoric": "Euphoric",
+  "terrible": "Terrible",
+  "customSelection": "Custom Selection",
+  "moodSaved": "Mood saved!",
+  "errorSaving": "Error saving: {error}",
+  "@errorSaving": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "settings": "Settings",
+  "darkMode": "Dark Mode",
+  "darkModeDescription": "Switch between light and dark theme",
+  "notifications": "Notifications",
+  "notificationsDescription": "Configure daily reminders",
+  "privacySecurity": "Privacy & Security",
+  "privacySecurityDescription": "Data protection and privacy settings",
+  "language": "Language",
+  "languageDescription": "Change app language",
+  "moodNavigation": "Mood",
+  "chartsNavigation": "Charts",
+  "tipsNavigation": "Tips",
+  "settingsNavigation": "Settings",
+  "recordMoodEntry": "Record Mood Entry",
+  "pressAndHoldToAdjust": "Press and hold to adjust intensity",
+  "intensityLabel": "Intensity: {intensity}/5",
+  "@intensityLabel": {
+    "placeholders": {
+      "intensity": {
+        "type": "int"
+      }
+    }
+  },
+  "score": "Score: {score}/10",
+  "@score": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "selectLanguage": "Select Language",
+  "english": "English",
+  "spanish": "Spanish",
+  "languageChanged": "Language changed to {language}",
+  "@languageChanged": {
+    "placeholders": {
+      "language": {
+        "type": "String"
+      }
+    }
+  },
+  "systemDefault": "System Default",
+  
+  "moodSuccessSaved": "Mood recorded successfully!",
+  "errorSavingMood": "Error saving",
+  "energyLevelLabel": "Energy Level",
+  "stressLevelLabel": "Stress Level",
+  "triggers": "Triggers",
+  "addComment": "Add comment...",
+  "selectEmotion": "Select an emotion",
+  "selectActivity": "Select an activity",
+  "selectTrigger": "Select a trigger",
+  "additionalEmotions": "Additional emotions",
+  "commonActivities": "Common activities",
+  "emotionalTriggers": "Emotional triggers",
+  "optional": "Optional",
+  
+  "work": "Work",
+  "exercise": "Exercise",
+  "socializing": "Socializing",
+  "family": "Family",
+  "rest": "Rest",
+  "hobbies": "Hobbies",
+  "study": "Study",
+  "travel": "Travel",
+  "meditation": "Meditation",
+  "reading": "Reading",
+  "music": "Music",
+  "nature": "Nature",
+  
+  "happy": "Happy",
+  "sad": "Sad",
+  "anxious": "Anxious",
+  "calm": "Calm",
+  "excited": "Excited",
+  "angry": "Angry",
+  "grateful": "Grateful",
+  "frustrated": "Frustrated",
+  "motivated": "Motivated",
+  "tired": "Tired",
+  "confident": "Confident",
+  "lonely": "Lonely",
+  
+  "stress": "Stress",
+  "workPressure": "Work pressure",
+  "relationship": "Relationship",
+  "health": "Health",
+  "money": "Money",
+  "change": "Change",
+  "uncertainty": "Uncertainty",
+  "socialMedia": "Social media",
+  "sleep": "Sleep",
+  "weather": "Weather",
+  
+  "low": "Low",
+  "medium": "Medium",
+  "high": "High",
+  "veryLow": "Very Low",
+  "veryHigh": "Very High",
+  
+  "notificationSettings": "Notification Settings",
+  "enableNotifications": "Enable notifications",
+  "notificationTime": "Notification time",
+  "selectTime": "Select time",
+  "testNotification": "Test notification",
+  "notificationTestSent": "Test notification sent!",
+  "errorSendingTest": "Error sending test notification",
+  "saveSettings": "Save Settings",
+  "settingsSaved": "Settings saved successfully!",
+  "errorSavingSettings": "Error saving settings",
+  
+  "moodDistribution": "Mood Distribution",
+  "weeklyMoodTrend": "Weekly Mood Trend",
+  "noDataAvailable": "No data available",
+  "lastWeek": "Last week",
+  "thisWeek": "This week",
+  "average": "Average",
+  "entries": "entries",
+  
+  "selectDate": "Select date",
+  "daysAgo": "days ago",
+  "from": "from",
+  "to": "to",
+  "total": "Total",
+  "dailyAverage": "Daily average",
+  "periodSummary": "Period summary",
+  
+  "loading": "Loading...",
+  "retry": "Retry",
+  "error": "Error",
+  "noEntriesFound": "No entries found",
+  "addFirstEntry": "Add your first mood entry!",
+  "tapToAdd": "Tap + to add",
+  
+  "howAreYouFeelingToday": "How are you feeling today?",
+  "timeForDailyMoodCheck": "It's time for your daily mood check",
+  "dailyMoodReminder": "Daily Mood Reminder",
+  "dailyRemindersToTrackMood": "Daily reminders to track your mood",
+  
+  "dataProtection": "Data Protection",
+  "localStorageInfo": "Your data is stored locally on your device and is not shared with third parties.",
+  "exportData": "Export Data",
+  "deleteAllData": "Delete All Data",
+  "confirmDeleteTitle": "Confirm Deletion",
+  "confirmDeleteMessage": "Are you sure you want to delete all your mood data? This action cannot be undone.",
+  "delete": "Delete",
+  
+  "moodHistory": "Mood History",
+  "todayMood": "Today's Mood",
+  "weeklyAverage": "Weekly Average",
+  "monthlyTrend": "Monthly Trend",
+  "howAreYouFeeling": "How are you feeling?",
+  "notes": "Notes",
+  "addNotesPlaceholder": "Add notes about your mood...",
+  "saveMood": "Save Mood",
+  "home": "Home",
+  "tips": "Tips",
+  "charts": "Charts",
+  
+  "notificationPermissionDenied": "Notification permissions denied. Go to settings to enable them.",
+  "dailyReminderScheduledFor": "Daily reminder scheduled for {time}",
+  "@dailyReminderScheduledFor": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderUpdatedFor": "Reminder updated for {time}",
+  "@reminderUpdatedFor": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  
+  "dailyReminderCanceled": "Daily reminder canceled",
+  "dailyReminderTitle": "Daily Reminder",
+  "dailyReminderDescription": "Get a daily reminder to track your mood",
+  "enableReminders": "Enable reminders",
+  "remindersActive": "Reminders are active",
+  "remindersInactive": "Reminders are inactive",
+  "reminderSchedule": "Reminder Schedule",
+  "selectReminderTime": "Select the time you want to receive the reminder",
+  "reminderTime": "Reminder time",
+  "information": "Information",
+  "reminderInfoText": "• Reminders will be sent every day at the selected time\\n• You can change the time at any moment\\n• If you disable reminders, all scheduled notifications will be canceled\\n• Make sure you have notification permissions enabled on your device",
+  
+  "existingEntry": "Existing entry",
+  "overwriteEntry": "You already have a score for today. Overwrite?",
+  "overwrite": "Overwrite",
+  "moodSavedCorrectly": "Mood saved correctly",
+  "myCurrentMood": "My Current Mood"
+}

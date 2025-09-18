@@ -96,7 +96,10 @@ class NotificationService {
     return false;
   }
 
-  Future<void> scheduleDailyMoodReminder(int hour, int minute) async {
+  Future<void> scheduleDailyMoodReminder(int hour, int minute, {
+    String title = '¿Cómo te sientes hoy?',
+    String body = 'Es hora de registrar tu estado de ánimo diario',
+  }) async {
     // Cancel any existing daily notification
     await flutterLocalNotificationsPlugin.cancel(1);
 
@@ -127,8 +130,8 @@ class NotificationService {
     // Schedule daily at the specified time
     await flutterLocalNotificationsPlugin.zonedSchedule(
       1,
-      '¿Cómo te sientes hoy?',
-      'Es hora de registrar tu estado de ánimo diario',
+      title,
+      body,
       scheduledDate,
       platformChannelSpecifics,
       androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,

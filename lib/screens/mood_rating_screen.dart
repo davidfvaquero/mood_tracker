@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mood_tracker/services/mood_storage.dart';
 import '../models/mood_entry.dart';
 
@@ -25,18 +26,18 @@ class _MoodRatingScreenState extends State<MoodRatingScreen> {
         context: context,
         builder:
             (context) => AlertDialog(
-              title: const Text('Entrada existente'),
-              content: const Text(
-                'Ya tienes una puntuación para hoy. ¿Sobrescribir?',
+              title: Text(AppLocalizations.of(context)!.existingEntry),
+              content: Text(
+                AppLocalizations.of(context)!.overwriteEntry,
               ),
               actions: [
                 TextButton(
                   onPressed: () => Navigator.pop(context, false),
-                  child: const Text('Cancelar'),
+                  child: Text(AppLocalizations.of(context)!.cancel),
                 ),
                 TextButton(
                   onPressed: () => Navigator.pop(context, true),
-                  child: const Text('Sobrescribir'),
+                  child: Text(AppLocalizations.of(context)!.overwrite),
                 ),
               ],
             ),
@@ -54,23 +55,23 @@ class _MoodRatingScreenState extends State<MoodRatingScreen> {
 
     _notesController.clear();
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Estado guardado correctamente')),
+      SnackBar(content: Text(AppLocalizations.of(context)!.moodSavedCorrectly)),
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Mi Estado Actual')),
+      appBar: AppBar(title: Text(AppLocalizations.of(context)!.myCurrentMood)),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
-                '¿Cómo te sientes hoy?',
-                style: TextStyle(fontSize: 24),
+              Text(
+                AppLocalizations.of(context)!.howAreYouFeeling,
+                style: const TextStyle(fontSize: 24),
               ),
               const SizedBox(height: 30),
               Column(

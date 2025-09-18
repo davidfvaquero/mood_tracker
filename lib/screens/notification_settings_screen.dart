@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mood_tracker/services/notification_service.dart';
 
 class NotificationSettingsScreen extends StatefulWidget {
@@ -40,8 +41,8 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
       if (!permissionGranted) {
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('Permisos de notificación denegados. Ve a configuración para habilitarlos.'),
+            SnackBar(
+              content: Text(AppLocalizations.of(context)!.notificationPermissionDenied),
               backgroundColor: Colors.red,
             ),
           );
@@ -53,13 +54,15 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
       await _notificationService.scheduleDailyMoodReminder(
         _selectedTime.hour,
         _selectedTime.minute,
+        title: AppLocalizations.of(context)!.howAreYouFeelingToday,
+        body: AppLocalizations.of(context)!.timeForDailyMoodCheck,
       );
 
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(
-              'Recordatorio diario programado para las ${_selectedTime.format(context)}',
+              AppLocalizations.of(context)!.dailyReminderScheduledFor(_selectedTime.format(context)),
             ),
             backgroundColor: Colors.green,
           ),
@@ -71,8 +74,8 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
       
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Recordatorio diario cancelado'),
+          SnackBar(
+            content: Text(AppLocalizations.of(context)!.dailyReminderCanceled),
             backgroundColor: Colors.orange,
           ),
         );
@@ -106,13 +109,15 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
         await _notificationService.scheduleDailyMoodReminder(
           _selectedTime.hour,
           _selectedTime.minute,
+          title: AppLocalizations.of(context)!.howAreYouFeelingToday,
+          body: AppLocalizations.of(context)!.timeForDailyMoodCheck,
         );
 
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(
-                'Recordatorio actualizado para las ${_selectedTime.format(context)}',
+                AppLocalizations.of(context)!.reminderUpdatedFor(_selectedTime.format(context)),
               ),
               backgroundColor: Colors.blue,
             ),
@@ -127,7 +132,7 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
     if (_isLoading) {
       return Scaffold(
         appBar: AppBar(
-          title: const Text('Configuración de Notificaciones'),
+          title: Text(AppLocalizations.of(context)!.notificationSettings),
         ),
         body: const Center(
           child: CircularProgressIndicator(),
@@ -137,7 +142,7 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Configuración de Notificaciones'),
+        title: Text(AppLocalizations.of(context)!.notificationSettings),
       ),
       body: ListView(
         padding: const EdgeInsets.all(16.0),
@@ -156,23 +161,23 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
                       ),
                       const SizedBox(width: 8),
                       Text(
-                        'Recordatorio Diario',
+                        AppLocalizations.of(context)!.dailyReminderTitle,
                         style: Theme.of(context).textTheme.titleLarge,
                       ),
                     ],
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    'Recibe un recordatorio diario para registrar tu estado de ánimo',
+                    AppLocalizations.of(context)!.dailyReminderDescription,
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   const SizedBox(height: 16),
                   SwitchListTile(
-                    title: const Text('Habilitar recordatorios'),
+                    title: Text(AppLocalizations.of(context)!.enableReminders),
                     subtitle: Text(
                       _notificationsEnabled
-                          ? 'Los recordatorios están activos'
-                          : 'Los recordatorios están desactivados',
+                          ? AppLocalizations.of(context)!.remindersActive
+                          : AppLocalizations.of(context)!.remindersInactive,
                     ),
                     value: _notificationsEnabled,
                     onChanged: _toggleNotifications,
@@ -201,20 +206,20 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
                       ),
                       const SizedBox(width: 8),
                       Text(
-                        'Horario del Recordatorio',
+                        AppLocalizations.of(context)!.reminderSchedule,
                         style: Theme.of(context).textTheme.titleLarge,
                       ),
                     ],
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    'Selecciona la hora en que quieres recibir el recordatorio',
+                    AppLocalizations.of(context)!.selectReminderTime,
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   const SizedBox(height: 16),
                   ListTile(
                     leading: const Icon(Icons.access_time),
-                    title: const Text('Hora del recordatorio'),
+                    title: Text(AppLocalizations.of(context)!.reminderTime),
                     subtitle: Text(_selectedTime.format(context)),
                     trailing: const Icon(Icons.chevron_right),
                     onTap: _selectTime,
@@ -238,17 +243,14 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
                       ),
                       const SizedBox(width: 8),
                       Text(
-                        'Información',
+                        AppLocalizations.of(context)!.information,
                         style: Theme.of(context).textTheme.titleLarge,
                       ),
                     ],
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    '• Los recordatorios se enviarán todos los días a la hora seleccionada\n'
-                    '• Puedes cambiar la hora en cualquier momento\n'
-                    '• Si desactivas los recordatorios, se cancelarán todas las notificaciones programadas\n'
-                    '• Asegúrate de tener los permisos de notificación habilitados en tu dispositivo',
+                    AppLocalizations.of(context)!.reminderInfoText,
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
                 ],
