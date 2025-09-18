@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:mood_tracker/services/mood_storage.dart';
 import 'package:mood_tracker/services/notification_service.dart';
+import 'package:mood_tracker/services/migration_service.dart';
 import 'package:provider/provider.dart';
 
 import 'models/mood_entry.dart';
-import 'screens/mood_rating_screen.dart';
+import 'models/enhanced_mood_entry.dart';
+import 'screens/enhanced_home_screen.dart';
 import 'screens/mood_charts_screen.dart';
 import 'screens/settings_screen.dart';
 import 'screens/tips_screen.dart';
@@ -14,8 +16,17 @@ import 'themes/theme_provider.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
+  
+  // Register adapters for both legacy and enhanced mood entries
   Hive.registerAdapter(MoodEntryAdapter());
+  Hive.registerAdapter(EnhancedMoodEntryAdapter());
+  
+  // Open boxes for both models
   await Hive.openBox<MoodEntry>('moodEntries');
+  await Hive.openBox<EnhancedMoodEntry>('enhancedMoodEntries');
+  
+  // Run data migration if needed
+  await MigrationService.migrateLegacyData();
 
   // Initialize notification service
   final notificationService = NotificationService();
@@ -75,7 +86,7 @@ class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
 
   final List<Widget> _screens = [
-    const MoodRatingScreen(),
+    const EnhancedHomeScreen(),
     const MoodChartsScreen(),
     TipsScreen(),
     const SettingsScreen(),
