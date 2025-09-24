@@ -395,7 +395,6 @@ class _EnhancedHomeScreenState extends State<EnhancedHomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final localizations = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Mood Tracker'),

@@ -619,5 +619,59 @@
   "confirmDeletion": "Confirmar borrado",
   "activities": "Actividades",
   "selectActivitiesYouDid": "Selecciona las actividades que realizaste",
-  "additionalNotes": "Notas Adicionales"
+  "additionalNotes": "Notas Adicionales",
+  "charts": "Gráficos",
+  "calendar": "Calendario",
+  "analytics": "Análisis",
+  "chartTypes": "Tipos de Gráficos",
+  "lineChart": "Gráfico de Líneas",
+  "barChart": "Gráfico de Barras",
+  "pieChart": "Gráfico Circular",
+  "heatmapChart": "Mapa de Calor",
+  "timePeriods": "Períodos de Tiempo",
+  "lastWeek": "Última Semana",
+  "lastMonth": "Último Mes",
+  "lastQuarter": "Último Trimestre",
+  "lastYear": "Último Año",
+  "last30Days": "Últimos 30 Días",
+  "last90Days": "Últimos 90 Días",
+  "averageMood": "Estado de Ánimo Promedio",
+  "totalEntries": "Total de Entradas",
+  "currentStreak": "Racha Actual",
+  "moodTrend": "Tendencia del Estado de Ánimo",
+  "trendRising": "Subiendo",
+  "trendFalling": "Bajando",
+  "trendStable": "Estable",
+  "noMoodDataAvailable": "No hay datos de estado de ánimo disponibles",
+  "startLoggingMoods": "Comienza a registrar tus estados de ánimo para ver análisis",
+  "comingSoon": "Próximamente",
+  "workingOnFeature": "Estamos trabajando en esta función",
+  "moodForDate": "Estado de ánimo para {date}",
+  "@moodForDate": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "moodRating": "Calificación del Estado de Ánimo: {rating}/10",
+  "@moodRating": {
+    "placeholders": {
+      "rating": {
+        "type": "String"
+      }
+    }
+  },
+  "noMoodRecorded": "No se registró estado de ánimo para este día",
+  "close": "Cerrar",
+  "moodDetails": "Detalles del Estado de Ánimo",
+  "date": "Fecha",
+  "mood": "Estado de Ánimo",
+  "note": "Nota",
+  "emotionDetails": "Detalles de la Emoción",
+  "occurrences": "Ocurrencias",
+  "percentage": "Porcentaje",
+  "tapDayForDetails": "Toca un día para ver detalles del estado de ánimo",
+  "lessFrequent": "Menos",
+  "moreFrequent": "Más"
 }

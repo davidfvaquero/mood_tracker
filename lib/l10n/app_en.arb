@@ -619,5 +619,59 @@
   "confirmDeletion": "Confirm deletion",
   "activities": "Activities",
   "selectActivitiesYouDid": "Select the activities you did",
-  "additionalNotes": "Additional Notes"
+  "additionalNotes": "Additional Notes",
+  "charts": "Charts",
+  "calendar": "Calendar",
+  "analytics": "Analytics",
+  "chartTypes": "Chart Types",
+  "lineChart": "Line Chart",
+  "barChart": "Bar Chart",
+  "pieChart": "Pie Chart",
+  "heatmapChart": "Heatmap",
+  "timePeriods": "Time Periods",
+  "lastWeek": "Last Week",
+  "lastMonth": "Last Month",
+  "lastQuarter": "Last Quarter",
+  "lastYear": "Last Year",
+  "last30Days": "Last 30 Days",
+  "last90Days": "Last 90 Days",
+  "averageMood": "Average Mood",
+  "totalEntries": "Total Entries",
+  "currentStreak": "Current Streak",
+  "moodTrend": "Mood Trend",
+  "trendRising": "Rising",
+  "trendFalling": "Falling",
+  "trendStable": "Stable",
+  "noMoodDataAvailable": "No mood data available",
+  "startLoggingMoods": "Start logging your moods to see analytics",
+  "comingSoon": "Coming Soon",
+  "workingOnFeature": "We're working on this feature",
+  "moodForDate": "Mood for {date}",
+  "@moodForDate": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "moodRating": "Mood Rating: {rating}/10",
+  "@moodRating": {
+    "placeholders": {
+      "rating": {
+        "type": "String"
+      }
+    }
+  },
+  "noMoodRecorded": "No mood recorded for this day",
+  "close": "Close",
+  "moodDetails": "Mood Details",
+  "date": "Date",
+  "mood": "Mood",
+  "note": "Note",
+  "emotionDetails": "Emotion Details",
+  "occurrences": "Occurrences",
+  "percentage": "Percentage",
+  "tapDayForDetails": "Tap on a day to see mood details",
+  "lessFrequent": "Less",
+  "moreFrequent": "More"
 }

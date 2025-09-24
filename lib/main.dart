@@ -10,7 +10,7 @@ import 'package:provider/provider.dart';
 import 'models/mood_entry.dart';
 import 'models/enhanced_mood_entry.dart';
 import 'screens/enhanced_home_screen.dart';
-import 'screens/mood_charts_screen.dart';
+import 'screens/enhanced_analytics_screen.dart';
 import 'screens/settings_screen.dart';
 import 'screens/tips_screen.dart';
 import 'themes/theme_provider.dart';
@@ -103,7 +103,7 @@ class _MainScreenState extends State<MainScreen> {
 
   final List<Widget> _screens = [
     const EnhancedHomeScreen(),
-    const MoodChartsScreen(),
+    const EnhancedAnalyticsScreen(),
     TipsScreen(),
     const SettingsScreen(),
   ];
